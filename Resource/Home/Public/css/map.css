@@ -1,0 +1,41 @@
+/*
+* @Author: longtaoge
+* @Date:   2017-09-03 21:52:16
+* @Last Modified by:   longtaoge
+* @Last Modified time: 2017-09-04 13:58:49
+*/
+.content .r_content  .map{
+
+
+
+
+
+}
+
+.content .r_content  .map .des{
+  font-size: 22px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255,213, 27, 0.6);
+ 
+
+}
+.content  .r_content .map .street{
+ background: #ffffff;
+   overflow: hidden;
+            width: 100%;
+            height: 600px;
+	
+}
+
+
+
+.content .r_content  .map .for2d{
+
+  background: #ffffff;
+   overflow: hidden;
+            width: 100%;
+            height: 600px;
+
+}
+

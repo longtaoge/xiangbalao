@@ -1,0 +1,69 @@
+/*
+* @Author: longtaoge
+* @Date:   2017-05-20 21:32:11
+* @Last Modified by:   longtaoge
+* @Last Modified time: 2017-08-28 08:25:11
+*/
+
+
+html,body,div,h1,h2,h3,h4,h5,h6,ol,ul,dl,li,tl,td,p{
+
+
+	padding: 0px;
+	margin: 0px;
+
+	list-style: none;
+	font-size: 14px;
+
+}
+
+
+input,img{
+    display: block;
+	outline-style: none;
+	padding: 0px;
+	margin: 0px;
+	
+}
+
+
+a{
+
+	/* display: block; */
+	text-decoration: none;
+  
+
+}
+
+
+.clearfix:after{
+
+content: "";
+height: 0px;
+width: 0px;
+line-height: 0px;
+clear: both;
+display: block;
+overflow: hidden;
+
+
+}
+
+
+.w{
+
+	width: 950px;
+	margin: 0 auto;
+
+}
+
+/**
+ * 线条背景
+ */
+.linebg{
+
+  background-color: #EAEAEA;  
+  background-size: 4px 4px;   
+  background-image: linear-gradient(rgba(255, 255, 255,0.6) 50%, transparent 50%, transparent);  
+
+}
