@@ -1,0 +1,41 @@
+/*
+* @Author: longtaoge
+* @Date:   2017-08-28 08:29:54
+* @Last Modified by:   longtaoge
+* @Last Modified time: 2017-08-28 09:02:42
+*/
+.detail_table {
+	
+
+  border-collapse : collapse ;
+  border: 1px solid #E5E5E5;
+  padding-top: 20px;
+  width: 100%;
+
+}
+
+.detail_table tbody{
+background: #ffffff;
+margin-top: 30px;
+padding-top: 20px;
+}
+
+
+.detail_table .odd{
+ padding: 10px;
+ text-align: center;
+ background: #F3F4F3;
+border: 1px solid #E5E5E5;
+  width: 25%;
+ font-size: 16px;
+  font-weight:600;
+
+}
+
+.detail_table .even{
+ padding: 10px;
+ text-align: center;
+border: 1px solid #E5E5E5;
+  width: 25%;
+
+}

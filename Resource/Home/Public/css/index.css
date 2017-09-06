@@ -2,7 +2,7 @@
 * @Author: longtaoge
 * @Date:   2017-05-20 21:39:03
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-03 19:57:09
+* @Last Modified time: 2017-09-06 20:36:21
 */
 html{
 
@@ -46,8 +46,8 @@ body{
 
 .nav  ul{
   
-  width: 780px;
- margin: 0 auto;
+  width: 630px;
+   margin: 0 auto;
 }
 .nav li{
 	float:left;

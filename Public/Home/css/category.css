@@ -1,0 +1,100 @@
+/*
+* @Author: longtaoge
+* @Date:   2017-09-03 08:21:14
+* @Last Modified by:   longtaoge
+* @Last Modified time: 2017-09-03 19:34:08
+*/
+
+
+
+/**
+ * 产品分类开始
+ */
+.content .r_content  .productCategory{
+
+	padding: 10px;
+
+}
+
+.content .r_content  .productCategory ul{
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid   #CCCCCC;
+  border-radius: 5px;
+  width: 96%;
+  float: left;
+  text-align: center;
+}
+
+.content .r_content  .productCategory li{
+    
+	width: 24%;
+	float: left;
+
+}
+
+
+.content .r_content  .productCategory li a{
+
+  display: block;
+  height: 45px;
+  background: yellowgreen;
+  line-height: 45px;
+  margin: 15px;
+  border-radius: 5px;
+
+
+}
+
+
+.content .r_content  .productCategory li a:hover{
+  background: greenyellow;
+}
+
+
+/** 搜索条件 */
+.content .r_content .productNav {
+ padding-left: 10px;
+ padding-right: 15px;
+  padding-bottom: 1px;
+}
+
+.content .r_content .productNav >ul{
+  padding: 10px;
+  border: 1px solid   #CCCCCC;
+  border-radius: 5px;
+   margin-bottom: 20px;
+}
+
+
+.content .r_content .productNav li{
+
+  float: left;
+}
+
+
+.content  .r_content .productNav a{
+
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  background: #F5F5F5;
+  width: 50px;
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+
+  border: 1px solid #DDDDDD;
+
+}
+
+.content  .r_content .productNav a:hover{
+ background: yellowgreen;
+ border: 1px solid yellowgreen;
+}
+
+ 
+
+
+
+/**产品分类结束*/
