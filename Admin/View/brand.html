@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>乡吧佬 - 后台管理</title>
+    <link rel="stylesheet" href="./Public/Admin/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Public/Admin/assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./Public/Admin/assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./Public/Admin/css/index.css">
+</head>
+<body>
+    
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <!-- 个人资料 -->
+        <div class="profile">
+            <!-- 头像 -->
+            <div class="avatar img-circle">
+                <img src="./Public/Admin/uploads/avatar.jpg">
+            </div>
+            <h4>布头儿</h4>
+        </div>
+        <!-- 导航菜单 -->
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-dashboard"></i>
+                        仪表盘
+                    </a>
+                </li>
+                <li>
+                    <a href="./user_list.html">
+                        <i class="fa fa-group"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-indent"></i>
+                        分类管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled show">
+                        <li>
+                            <a href="./category.html">
+                                 一级分类
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./brand.html" class="active">
+                                二级分类
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./goods_list.html">
+                        <i class="fa fa-cubes pull-left"></i>
+                        商品管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <div class="header">
+                <nav class="navbar navbar-custom">
+                    <div class="navbar-header">
+                        <a href="javascript:;" class="navbar-brand">
+                            <i class="fa fa-navicon"></i>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-bell"></i>
+                               <!--  <span class="badge"> </span> -->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./settings.html">
+                                <i class="fa fa-user"></i>
+                                个人中心
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-sign-out"></i>
+                                退出
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-tasks"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>          
+            </div>
+            <div class="body category">
+                <!-- 面包屑 -->
+                <ol class="breadcrumb">
+                    <li><a href="javascript:;">分类管理</a></li>
+                    <li class="active">商品品牌</li>
+                </ol>
+                <div class="page-title">
+                    <a href="?c=Brand&a=brandAdd" class="btn btn-success btn-sm pull-right">添加品牌</a>
+                </div>
+                <div class="panel panel-default">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="10%">编号</th>
+                                <th>品牌名称</th>
+                                <th>品牌logo</th>
+                                <!-- <td>商品数量</td> -->
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/template" id="tpl">
+        {{each rows}}
+        <tr>
+            <td>{{$value.brand_id}}</td>
+            <td>{{$value.brand_name}}</td>
+            <td width="100">
+                <img src="{{$value.brand_logo}}" alt="">
+            </td>
+            <!-- <td>8</td> -->
+            <td>
+                <a href="javascript:;" onclick="onEdit()"  class="btn btn-info btn-xs">编 辑</a>
+                <a href="javascript:;" onclick="onDelete()" class="btn btn-warning btn-xs">删 除</a>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <script src="./Public/Admin/assets/jquery/jquery.min.js"></script>
+    <script src="./Public/Admin/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./Public/Admin/assets/nprogress/nprogress.js"></script>
+    <script src="./Public/Admin/assets/artTemplate/template-web.js"></script>
+    <script src="./Public/Admin/js/Api.js"></script>
+    <script src="./Public/Admin/js/common.js"></script>
+    <script>
+        $.ajax({
+            url: Admin.brandList,
+            type: 'get',
+            data: {page: 1, pageSize: 10},
+            success: function (info) {
+
+                 info=$.parseJSON(info);
+                var html = template('tpl', info);
+                $('tbody').html(html);
+            }
+        });
+
+
+        function onEdit(){
+
+            alert('禁止操作');
+        }
+
+        function onDelete(){
+
+            alert('禁止删除');
+        }
+
+
+    </script>
+</body>
+</html>

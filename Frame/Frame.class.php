@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-06 11:02:00
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-06 19:35:01
+ * @Last Modified time: 2017-09-08 09:09:37
  */
 namespace Frame;
 final class Frame {
@@ -41,7 +41,7 @@ final class Frame {
  	 * @return [type] [description]
  	 */
 	private static function initRoute(){
-    	$p=$GLOBALS['config']['default_platform'];
+    	$p=isset($_GET['p' ]) ? $_GET['p' ]:$GLOBALS['config']['default_platform'];
         $c=isset($_GET['c' ]) ? $_GET['c' ] : $GLOBALS['config']['default_controller'];
     	$a=isset($_GET['a'])?$_GET['a']:$GLOBALS['config']['default_action'];
     	define('PLAT', $p);

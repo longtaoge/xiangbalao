@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>乡吧佬 - 后台管理</title>
+    <link rel="stylesheet" href="./Public/Admin/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Public/Admin/assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./Public/Admin/assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./Public/Admin/css/index.css">
+</head>
+<body>
+    <!-- 登录 -->
+    <div class="login">
+        <div class="login-wrap">
+            <div class="avatar">
+                <img src="./Public/Admin/images/radish.jpg" class="img-circle" alt="">
+            </div>
+            <form action="" class="col-xs-offset-1 col-xs-10">
+                <h6 id="name"></h6>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <input type="text" data-describedby="name" data-description="name" name="username" data-required class="form-control" placeholder="用户名">
+                </div>
+                <h6 id="pass"></h6>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input type="password" data-required data-pattern=".{6}" data-describedby="pass" data-description="pass" name="password" class="form-control" placeholder="密码">
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">登 录</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="./Public/Admin/assets/jquery/jquery.min.js"></script>
+    <script src="./Public/Admin/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./Public/Admin/assets/jquery-validate/jquery-validate.min.js"></script>
+    <script src="./Public/Admin/assets/jquery-form/jquery.form.js"></script>
+    <script src="./Public/Admin/js/Api.js"></script>
+    <script>
+
+        $('form').validate({
+            sendForm: false,
+            onKeyup: true,
+            eachValidField: function () {
+                // 
+            },
+            eachInvalidField: function () {
+                // 
+            },
+            valid: function () {
+                $(this).ajaxSubmit({
+                    // 利用反代理请求接口服务器
+                    url: Admin.login,
+                    type: 'post',
+                    success: function (info) {
+                        info=$.parseJSON(info);
+                        // 登录成功
+                        if(info.status) {
+                            location.href = '?';
+                        }else{
+                            alert('用户名或密码错');
+                        }
+                    }
+                });
+            },
+            description: {
+                // 为每一个表单项处理错误信息
+                // 表单项1,
+                // 表单项2,
+                // 表单项3
+                name: {
+                    required: '用户名不能为空'
+                },
+                pass: {
+                    required: '密码不能为空',
+                    pattern: '长度不能小于6位'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
