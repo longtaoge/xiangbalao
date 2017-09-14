@@ -21,16 +21,15 @@
         <!--  导航区 -->
         <div class="nav w ">
             <ul clearfix>
-                <li><a href="?"  class="activity" >  首页 </a></li>
+                  <li><a href="?">  首页 </a></li>
                 <li><a href="?c=Introduce">公司介绍</a></li>
-                <li><a href="?c=Category">供应产品</a></li>
+                <li><a href="?c=Category" >供应产品</a></li>
                 <li><a href="?c=Photo">公司相册</a></li>
                 <li><a href="?c=News">公司动态</a></li>
-                <!--<li><a href="#">客户反馈</a></li>
-                    <li><a href="#">公司招聘</a></li> -->
+                <li><a href="?c=Cooperate">交流合作</a></li>
                 <li><a href="?c=Customer">客户见证</a></li>
                 <li><a href="?c=Map">公司地图</a></li>
-                <li><a href="?c=Contact">联系我们</a></li>
+                <li><a href="?c=Contact" class="activity" >联系我们</a></li>
             </ul>
         </div>
         <!-- 广告区 -->
@@ -47,27 +46,28 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>企业档案</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <h4>河北石家庄华北食品城石家庄乡巴佬食品商行</h4>
                     <div class="des">
-                        <p> 魏先生 先生 与我联系</p>
-                        <p> 工商注册信息：未认证</p>
+                        <div> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2357261533&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2357261533:51" alt="与我联系" title="与我联系"/></a>
+                         <br>
+                        </div>  
+                        <p> 工商注册信息：已认证</p>
                         <p> 所在地区：河北省 石家庄市</p>
-                        <img src="./Public/Home/temp_img/scan.png">
                     </div>
                 </div>
                 <!-- 产品分类 -->
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>产品分类</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="product_type">
                         <ul>
-                            <li><a href="#">乡吧佬鸡腿</a></li>
-                            <li><a href="#">乡吧佬鸡蛋</a></li>
-                            <li><a href="#">乡吧佬鸡蛋</a></li>
+                             <{foreach $categorys as $row}>
+                             <li><a href="javascript:;"><{$row.catagory_name}></a></li>
+                             <{/foreach}>
                         </ul>
                     </div>
                 </div>
@@ -75,13 +75,13 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>公司动态</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="product_type">
                         <ul>
-                            <li><a href="#">乡吧佬食品与OEM贴牌</a></li>
-                            <li><a href="#">乡吧佬鸡蛋</a></li>
-                            <li><a href="#">乡吧佬鸡蛋</a></li>
+                            <{foreach $news as $row}>
+                             <li><a href="javascript:;"><{$row.title}></a></li>
+                            <{/foreach}>
                         </ul>
                     </div>
                 </div>
@@ -89,16 +89,13 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>相册橱窗</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="product_img">
                         <ul>
-                            <li>
-                                <a href="#"><img src="./Public/Home/temp_img/图片1.png"></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="./Public/Home/temp_img/图片1.png"></a>
-                            </li>
+                          <{foreach $photos as $row}>
+                           <a href="javascript:;"><img src="<{$row.photo_url}>"></a>
+                          <{/foreach}>
                         </ul>
                     </div>
                 </div>
@@ -106,28 +103,25 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>最新供应</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="product_img">
                         <ul>
-                            <li>
-                                <a href="#"><img src="./Public/Home/temp_img/图片1.png"></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="./Public/Home/temp_img/图片1.png"></a>
-                            </li>
+                         <{foreach $lnewgoods as $row}>
+                          <a href="javascript:;"><img src="<{$row.goods_pic}>"></a>
+                          <{/foreach}>
                         </ul>
                     </div>
                 </div>
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>联系我们</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="des">
                         <p> 联系人 : 魏先生 </p>
-                        <p> 电&nbsp;&nbsp;&nbsp;话: 0311-85933630</p>
-                        <p> 手&nbsp;&nbsp;&nbsp;机: 13167389338</p>
+                        <p> 电&nbsp;&nbsp;&nbsp;话: 311-8523872-8</p>
+                        <p> 手&nbsp;&nbsp;&nbsp;机: 1316738933-8</p>
                     </div>
                 </div>
             </div>
@@ -137,34 +131,36 @@
                 <div class="r_content_box">
                     <div class="rb_title">
                         <h3>联系我们</h3>
+                       
                     </div>
+
                     <div class="contact">
-                        <table>
-                            <tr>
-                                <td class="itemname">联系人 :</td>
-                                <td>魏先生</td>
-                            </tr>
-                            <tr>
-                                <td class="itemname">电话 :</td>
-                                <td>0311-7389338</td>
-                            </tr>
-                            <tr>
-                                <td class="itemname">手机 :</td>
-                                <td>13167389338</td>
-                            </tr>
-                            <tr>
-                                <td class="itemname">其他电话 :</td>
-                                <td>0311-85238728</td>
-                            </tr>
-                            <tr>
-                                <td class="itemname">公司地址 :</td>
-                                <td>河北省石家庄市桥西区石家庄华北食品城 </td>
-                            </tr>
-                            <tr>
-                                <td class="itemname">公司主页 :</td>
-                                <td><a href="javascript:;">华北食品城</a> </td>
-                            </tr>
-                        </table>
+                     <table>
+                         <tr>
+                             <td class="itemname" >联系人 :</td>
+                             <td>魏先生</td>
+                         </tr>
+                        <tr>
+                             <td class="itemname" >电话 :</td>
+                             <td>0311-8523872-8</td>
+                         </tr>
+                        <tr>
+                             <td class="itemname" >手机 :</td>
+                             <td>1316738933-8</td>
+                         </tr> 
+                         <tr>
+                             <td class="itemname" >其他电话 :</td>
+                             <td>0311-8523872-8</td>
+                         </tr>
+                          <tr>
+                             <td class="itemname" >公司地址 :</td>
+                             <td>河北省石家庄市桥西区石家庄华北食品城 </td>
+                         </tr>
+                         <tr>
+                             <td class="itemname">公司主页 :</td>
+                             <td><a href="javascript:;">华北食品城</a> </td>
+                         </tr>
+                     </table>
                     </div>
                 </div>
                 <!-- 联系我们 结束-->
@@ -172,45 +168,19 @@
                 <div class="r_content_box">
                     <div class="rb_title">
                         <h3>产品橱窗</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="productShopWindow linebg  clearfix  ">
                         <ul>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 乡吧佬鸡腿
+                            <{foreach $rows as $row}>
+                                <li>
+                                    <div class="pbox"> <img src="<{$row.goods_pic}>">
+                                        <div class="des">
+                                             <p>价格: <span>面议</span></p> <{$row.goods_name}>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 文字描述
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 文字描述
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 文字描述
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 文字描述
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            <{/foreach}>
                         </ul>
                     </div>
                 </div>
@@ -220,11 +190,11 @@
     </div>
     <!-- 页脚开始 -->
     <div class="footer ">
-        <ul>
-            <li>河北省石家庄市乡巴佬食品批发中心 版权所有</li>
-            <li>地址:&nbsp;石家庄市华北食品城 电话:&nbsp;0311-85933630</li>
-            <li> <span class="icp"> 沪ICP备08101087号&nbsp; /&nbsp;增值电信业务经营许可证:&nbsp;京ICP证010051号</span></li>
-            <li> <span><a href="#">管理员入口</a> | <a href="#">产品地图</a> | <a href="#">免责声明 | </a><a href="#">技术支持:慧聪</a></span> </li>
+         <ul>
+                    <li>河北省石家庄市乡巴佬食品批发中心 版权所有</li>
+                    <li>地址:&nbsp;石家庄市华北食品城 电话:&nbsp;0311-8523872-8</li>
+                    <li> <span class="icp"> 友情链接&nbsp;</span> <a href="http://www.xiangbalao.org"> 乡吧佬食品</a>&nbsp;&nbsp;<a href="http://www.huabeishipin.cn">华北食品城</a></li>
+                    <li> <span><a href="#">管理员入口</a> | <a href="javascript:;">产品地图</a> | <a href="javascript:;">免责声明 | </a><a href="javascript:;">技术支持:北京龙套科技</a></span> </li>
         </ul>
     </div>
     <!-- 页脚结束 -->

@@ -15,6 +15,8 @@ $.ajax({
     type: 'get',
     success: function (info) {
         info=$.parseJSON(info);
+        //info=JSON.parse(info);;
+       
         if(info.status!=1) {
            location.href = Admin.index;
         }

@@ -2,11 +2,10 @@
 * @Author: longtaoge
 * @Date:   2017-09-05 15:56:08
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-05 15:56:26
+* @Last Modified time: 2017-09-12 21:13:13
 */
   //当前显示的轮播项的索引
     var nextIndex = 0; //控制切换的索引 下一个
-
     //所有大图的集合
     var bigimgs = document.querySelector('.bigimg').querySelectorAll('img');
     //所有小图的集合

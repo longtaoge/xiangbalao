@@ -2,7 +2,7 @@
 * @Author: longtaoge
 * @Date:   2017-09-03 08:21:14
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-03 19:34:08
+* @Last Modified time: 2017-09-12 20:46:34
 */
 
 
@@ -38,17 +38,19 @@
 
   display: block;
   height: 45px;
-  background: yellowgreen;
+  background: rgb(88, 174, 5);
   line-height: 45px;
   margin: 15px;
+  color: #fff;
   border-radius: 5px;
-
+  font-size: 18px;
 
 }
 
 
 .content .r_content  .productCategory li a:hover{
   background: greenyellow;
+  color: red;
 }
 
 

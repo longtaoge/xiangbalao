@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>乡吧佬 - 后台管理</title>
+    <link rel="stylesheet" href="./Public/Admin/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Public/Admin/assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./Public/Admin/assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./Public/Admin/css/index.css">
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <!-- 个人资料 -->
+        <div class="profile">
+            <!-- 头像 -->
+            <div class="avatar img-circle">
+                <img src="./Public/Admin/uploads/avatar.jpg">
+            </div>
+            <h4>管理员</h4>
+        </div>
+        <!-- 导航菜单 -->
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="?" class="active">
+                        <i class="fa fa-dashboard"></i>
+                        仪表盘
+                    </a>
+                </li>
+                <li>
+                    <a href="?c=User&a=userList">
+                        <i class="fa fa-group"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-indent"></i>
+                        品类管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=Category">
+                                分类管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=Brand">
+                                品牌管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-cubes pull-left"></i>
+                        商品管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=Goods">
+                                商品列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=Goods&a=goodsAdd">
+                                添加商品
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">   
+                        <i class="fa fa-camera pull-left"></i>
+                        相册管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=Photo">
+                                图片列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=Photo&a=photoAdd">
+                                添加图片
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">   
+                        <i class="fa fa-camera pull-left"></i>
+                        新闻管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=News">
+                                文章列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=News&a=newsAdd">
+                                添加文章
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <div class="header">
+                <nav class="navbar navbar-custom">
+                    <div class="navbar-header">
+                        <a href="javascript:;" class="navbar-brand">
+                            <i class="fa fa-navicon"></i>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="?c=User&a=settings">
+                                <i class="fa fa-user"></i>
+                                个人中心
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" id="logout">
+                                <i class="fa fa-sign-out"></i>
+                                退出
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-tasks"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- 讲师资料 -->
+            <div class="body">
+                <div class="goods-add">
+                    <form action="" class="form-horizontal">
+                       
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">文章标题</label>
+                            <div class="col-xs-5">
+                                <h6 id="title"></h6>
+                                <input type="text" name="title" data-required data-pattern=".{3}" data-describedby="title" data-description="title" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">新闻类型</label>
+                            <div class="col-xs-5">
+                                <select name="type"  class="form-control input-sm">
+                                      <option value="1">公司动态</option>
+                                      <option value="2">解决方案</option>
+                                      <option value="3">成功案例</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">作者</label>
+                            <div class="col-xs-5">
+                                <h6 id="author"></h6>
+                                <input type="text" name="author" data-required data-pattern=".{2}" data-describedby="author" data-description="author" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">来源</label>
+                            <div class="col-xs-5">
+                                <input type="text"  name="source" class="form-control input-sm">
+                            </div>
+                        </div>
+                      
+                      
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">内容</label>
+                            <div class="col-xs-8 ">
+                                <textarea name="content" id="editor"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-8">
+                                <input type="submit" class="btn btn-success btn-sm pull-right" value="保 存">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./Public/Admin/assets/jquery/jquery.min.js"></script>
+    <script src="./Public/Admin/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./Public/Admin/assets/nprogress/nprogress.js"></script>
+    <script src="./Public/Admin/assets/jquery-uploadify/jquery.uploadify.min.js"></script>
+  
+    <script src="./Public/Admin/assets/jquery-validate/jquery-validate.min.js"></script>
+    <script src="./Public/Admin/assets/jquery-form/jquery.form.js"></script>
+    <script src="./Public/Admin/js/Api.js"></script>
+    <script src="./Public/Admin/js/common.js"></script>
+    <script src="./Public/Admin/assets/ueditor/ueditor.config.js"></script>
+    <script src="./Public/Admin/assets/ueditor/ueditor.all.min.js">
+    </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script src="./Public/Admin/assets/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script>
+    var ue = UE.getEditor('editor');
+
+    // 
+    $('form').validate({
+        sendForm: false,
+        onKeyup: true,
+        eachValidField: function() {},
+        eachInvalidField: function() {},
+        valid: function() {
+            $(this).ajaxSubmit({
+                url: Admin.newsAdd,
+                type: 'post',
+             /*   data: { content: UE.getEditor('editor').getContent() },*/
+                success: function(info) {
+                    info = JSON.parse(info);
+                    if (info.status) {
+                        location.href = '?c=News';
+                    }
+                }
+            });
+        },
+        description: {
+
+            author: {
+                required: '作者不能为空',
+                pattern: '长度不能小于2位'
+            },
+            title: {
+                required: '标题不能为空',
+                pattern: '长度不能小于2位'
+            }
+
+        }
+    });
+    </script>
+</body>
+
+</html>

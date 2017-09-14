@@ -203,6 +203,8 @@ a:focus {
 .main .dashboard .cell h5 {
   font-size: 15px;
 }
+
+
 .main .dashboard .cell span {
   font-size: 13px;
 }
@@ -459,4 +461,11 @@ a:focus {
   box-shadow: 0 1px 5px #CCC;
   background-color: pink;
   overflow: hidden;
+}
+
+
+#category,#goods,#lastIp,#assess_count{
+  padding-left: 70px;
+  display: block;
+  font-size: 12px;
 }

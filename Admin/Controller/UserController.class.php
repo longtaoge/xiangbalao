@@ -3,51 +3,39 @@
  * @Author: longtaoge
  * @Date:   2017-09-08 13:59:56
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-10 17:26:19
+ * @Last Modified time: 2017-09-13 11:43:17
  */
 namespace Admin\Controller;
 use Frame\Libs\BaseController;
+use Admin\Model\UserModel;
 final class UserController extends BaseController{
 
-	protected $table='xb_user';
+
 	/**
 	 * 显示登录页
 	 * @return [type] [description]
 	 */
 	public function index(){
-
 		 $this->mSmarty->display(VIEW_PATH.'login.html');
 	}
  
+
+	/**
+	 * 用户列表页
+	 * @return [type] [description]
+	 */
+    public function userList(){
+    	$this->mSmarty->display(VIEW_PATH.'user_list.html');
+    }
 
  	/**
  	 * 登录
  	 * @return [type] [description]
  	 */
  	public function login(){
-			$password= $_POST["password"];
-			$username= $_POST["username"];
-			$password=$this->getPassword($password);
-			$sql="Select * from $this->table  where username ='{$username}' and  password ='{$password}'" ;
- 		    $res= $this->pdo->fetchOne($sql);
- 		    if ($res) {
- 		    	$_SESSION['username']=$res['username'];
- 		    	$_SESSION['userid']=$res['id'];
- 		    	 $data['status']=1;
- 		    	 $data['msg']='登录成功';
- 		    	 $time =time();
- 		    	 $ip=$_SERVER["REMOTE_ADDR"];
- 		    	 $sql ="update xb_user  set lastTime='{$time}', lastIp='{$ip}' where id ={$res['id']}";
- 		    	 
- 		    	 $this->pdo->exec($sql);
-
- 		    }else{
-
- 				$data['status']=0;
- 		    	$data['msg']='登录失败';
-
- 		    }
- 			echo json_encode($data);
+ 		  $model=  UserModel::getInstance();
+ 		  $data=$model->login();
+ 		  echo json_encode($data);
  	}
 
  	/**
@@ -55,10 +43,8 @@ final class UserController extends BaseController{
  	 * @return [type] [description]
  	 */
  	public function logout(){
-		$_SESSION['username']=null;
- 		$_SESSION['userid']=null;
- 		$data['status']=1;
- 		$data['msg']='退出成功';
+		$model=  UserModel::getInstance();
+ 		$data=$model->logout();
  		echo json_encode($data);
 
  	}
@@ -68,16 +54,9 @@ final class UserController extends BaseController{
  	 * @return [type] [description]
  	 */
  	public function checkLogin(){
-
- 		 if (isset($_SESSION['username'])&&$_SESSION['username']!=null) {
- 		 	  $data['status']=1;
- 		      $data['msg']='登录成功';
- 		 }else{
-
- 		 	 $data['status']=0;
- 		     $data['msg']='登录失败';
- 		 }
-			echo json_encode($data);
+ 		   $model=  UserModel::getInstance();
+ 		   $data=$model->checkLogin();
+		   echo json_encode($data);
     
  	}
 
@@ -86,18 +65,9 @@ final class UserController extends BaseController{
  	 * @return [type] [description]
  	 */
  	public function queryUser(){
- 		$pageSize=isset($_GET['pageSize'])?$_GET['pageSize']:5;
-		$page=isset($_GET['page'])?$_GET['page']:0;
-		$page=($page-1)*$pageSize;
- 		$sql="select * from {$this->table} limit {$page} ,{$pageSize}";
- 		$res=$this->pdo->fetchAll($sql);
- 		if ($res) {
-
- 			  $data['rows']=$res;
-
- 			 echo json_encode($data);
- 		}
-
+ 		$model=  UserModel::getInstance();
+ 		$data=$model->queryUser();
+ 		echo json_encode($data);
 
  	}
 
@@ -107,21 +77,8 @@ final class UserController extends BaseController{
  	 * @return [type] [description]
  	 */
  	public function deleteUser(){
-
- 		$id=$_GET['id'];
- 		if ($id!=1) {
- 			$sql="delete from {$this->table} where id = {$id} ";
-        	$res=$this->pdo->exec($sql);
- 		}
-
-        if($res){
- 		 	  $data['status']=1;
- 		      $data['msg']='删除成功';
- 		 }else{
- 		 	 $data['status']=0;
- 		     $data['msg']='删除失败';
- 		 }
-			
+ 		$model =  UserModel::getInstance();
+ 		$data=$model->deleteUser();
 		echo json_encode($data);
  	}
 
@@ -139,32 +96,19 @@ final class UserController extends BaseController{
  	 * 添加用户
  	 */
  	public function addUser(){
-
- 		$username=isset($_POST['userName'])?$_POST['userName']:'';
- 		$nickName=isset($_POST['nickName'])?$_POST['nickName']:'';
- 		$password=isset($_POST['password'])?$_POST['password']:'';
- 		$password=$this->getPassword($password);
- 		$phone=isset($_POST['phone'])?$_POST['phone']:'';
- 		$role=isset($_POST['role'])?$_POST['role']:0;
- 		$time =time();
- 		$ip=$_SERVER["REMOTE_ADDR"];
- 		//执行SQL 
- 		$sql="insert into {$this->table} values(null,'{$username}','{$password}',{$time},'{$ip}','{$nickName}',{$role},{$phone})" ;
-
-        $res=$this->pdo->exec($sql);
- 	
-        if($res){
- 		 	  $data['status']=1;
- 		      $data['msg']='添加用户成功';
- 		 }else{
- 		 	 $data['status']=0;
- 		     $data['msg']='添加用户失败';
- 		 }
-
- 		 echo json_encode($data);
+ 		  $model=  UserModel::getInstance();
+ 		  $data=$model->addUser();
+ 		  echo json_encode($data);
 
 
  	}
 
+  /**
+     * 设置页
+     * @return [type] [description]
+     */
+    public function settings(){
+        $this->mSmarty->display(VIEW_PATH.'settings.html');
 
+    }
 }

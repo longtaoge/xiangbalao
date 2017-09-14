@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-06 08:18:56
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-08 21:30:55
+ * @Last Modified time: 2017-09-13 10:46:36
  */
 namespace Frame\Libs;
 use Frame\Vendor\Smarty;
@@ -36,5 +36,27 @@ abstract class BaseController{
  		return $pass2.$pass;
 
 		}
+
+	//登录状态较验
+	protected function  denyAccess(){
+
+	 	if (empty($_SESSION['username'])) {
+	 		$this->emptyPage('拒绝访问','请登录后操作');
+	 		header("refresh:1;url=?c=User");
+	 		die();
+	 	}
+
+	}
+
+	/**
+	 * [emptyPage 404]
+	 * @return [type] [description]
+	 */
+	 public function emptyPage($title='无法访问',$msg='相关页面无法找到'){
+
+	 	$this->mSmarty->assign("title",$title);
+	 	$this->mSmarty->assign("message",$msg);
+     	$this->mSmarty->display(VIEW_PATH.'404.html');
+     }
 
 }

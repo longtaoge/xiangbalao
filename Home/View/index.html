@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="./Public/Home/css/base.css">
     <link rel="stylesheet" type="text/css" href="./Public/Home/css/index.css">
+    <meta name="viewport" content="initial-scale=1,width=device-width" >
 </head>
 
 <body>
@@ -20,13 +21,12 @@
         <!--  导航区 -->
         <div class="nav w ">
             <ul clearfix>
-                <li><a href="?"  class="activity" >  首页 </a></li>
+                <li><a href="?" class="activity" >  首页 </a></li>
                 <li><a href="?c=Introduce">公司介绍</a></li>
                 <li><a href="?c=Category">供应产品</a></li>
                 <li><a href="?c=Photo">公司相册</a></li>
                 <li><a href="?c=News">公司动态</a></li>
-                <!--<li><a href="#">客户反馈</a></li>
-                    <li><a href="#">公司招聘</a></li> -->
+                <li><a href="?c=Cooperate">合作交流</a></li>
                 <li><a href="?c=Customer">客户见证</a></li>
                 <li><a href="?c=Map">公司地图</a></li>
                 <li><a href="?c=Contact">联系我们</a></li>
@@ -46,27 +46,31 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>企业档案</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <h4>河北石家庄华北食品城石家庄乡巴佬食品商行</h4>
                     <div class="des">
-                        <p> 魏先生 先生 与我联系</p>
-                        <p> 工商注册信息：未认证</p>
+                         <div> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2357261533&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2357261533:51" alt="与我联系" title="与我联系"/></a>
+
+                         <br>
+                        </div>  
+          
+                        <p> 工商注册信息：已认证</p>
                         <p> 所在地区：河北省 石家庄市</p>
-                        <img src="./Public/Home/temp_img/scan.png">
+                        
                     </div>
                 </div>
                 <!-- 产品分类 -->
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>产品分类</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="product_type">
                         <ul>
-                            <li><a href="#">乡吧佬鸡腿</a></li>
-                            <li><a href="#">乡吧佬鸡蛋</a></li>
-                            <li><a href="#">乡吧佬鸡蛋</a></li>
+                             <{foreach $categorys as $row}>
+                             <li><a href="javascript:;"><{$row.catagory_name}></a></li>
+                             <{/foreach}>
                         </ul>
                     </div>
                 </div>
@@ -74,13 +78,13 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>公司动态</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="product_type">
                         <ul>
-                            <li><a href="#">乡吧佬食品与OEM贴牌</a></li>
-                            <li><a href="#">乡吧佬鸡蛋</a></li>
-                            <li><a href="#">乡吧佬鸡蛋</a></li>
+                        <{foreach $news as $row}>
+                         <li><a href="javascript:;"><{$row.title}></a></li>
+                        <{/foreach}>
                         </ul>
                     </div>
                 </div>
@@ -88,16 +92,14 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>相册橱窗</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="product_img">
-                        <ul>
-                            <li>
-                                <a href="#"><img src="./Public/Home/temp_img/图片1.png"></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="./Public/Home/temp_img/图片1.png"></a>
-                            </li>
+                        <ul>  
+                          <{foreach $photos as $row}>
+                          <a href="javascript:;"><img src="<{$row.photo_url}>"></a>
+                          <{/foreach}>
+                            
                         </ul>
                     </div>
                 </div>
@@ -105,16 +107,13 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>最新供应</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="product_img">
                         <ul>
-                            <li>
-                                <a href="#"><img src="./Public/Home/temp_img/图片1.png"></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="./Public/Home/temp_img/图片1.png"></a>
-                            </li>
+                          <{foreach $lnewgoods as $row}>
+                          <a href="javascript:;"><img src="<{$row.goods_pic}>"></a>
+                          <{/foreach}>
                         </ul>
                     </div>
                 </div>
@@ -125,38 +124,19 @@
                 <div class="r_content_box">
                     <div class="rb_title">
                         <h3>产品橱窗</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="productShopWindow linebg  clearfix  ">
                         <ul>
+                        <{foreach $rows as $row}>
                             <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
+                                <div class="pbox"> <img src="<{$row.goods_pic}>">
                                     <div class="des">
-                                        <span>价格:125元</span> 乡吧佬鸡腿
+                                         <p>价格: <span>面议</span></p> <{$row.goods_name}>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 文字描述
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 文字描述
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 文字描述
-                                    </div>
-                                </div>
-                            </li>
+                        <{/foreach}>
                         </ul>
                     </div>
                 </div>
@@ -165,11 +145,11 @@
                 <div class="r_content_box  ">
                     <div class="rb_title">
                         <h3>公司介绍</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="enter_des linebg">
                         <img src="./Public/Home/img/shipincheng.jpg">
-                        <p> 本公司位于河北省石家庄市平西路与西二环交叉口华北食品城，主营 休闲食品/肉制品/乡吧佬系列/火腿腿系列/麻辣系列/泡爪系列…… 等。公司秉承“顾客至上，锐意进取”的经营理念，坚持“客户第一”的原则为广大客户提供优质的服务。欢迎惠顾 石家庄市西二环与和平路交叉口，南靠307国道，距石太高速公路2.5公里，距107国道复线2公里，市公交76路、快4路、旅游2路车直达食品城，公路运输四通八达，交通便利，地理位置极为优越。 华北食品城位于石家庄二环路市场带，南邻河北省最大的农产品批发市场---石家庄桥西蔬菜中心批发市场，北邻华闽日化百货，西邻东鑫商贸中心,华北食品城区位优势明显，是理想的经营场所。 　　 一期工程占地80余亩，经营门市800余间，批发商800余户，汇集了全国上千个知名厂家直销处及厂家总代理3万余个品种，经营品类包括各类小食品、副食品、糖果、粮油、烟、酒、茶各种饮品等。华北食品城规划建设布局合理，门市之间通道为封闭式大棚，可防雨、防晒，方便客商进行交易，是广大客户理想的货源基地。现日成交额1000万元，日客流量1万余人。食品城设有市场管理处，治安派出所，工商管理所，巡回法庭等管理机构，确保市场交易公平、公正。保安24小时昼夜服务，确保客户人身及货物的安全。同时食品城还建有铁路专用线，停车场、标准库房，住宿、餐饮，托运、银行、咨询处等完善配套的设施，为广大客户提供行情信息、代购、代销、运输、金融及吃、住、行等全方位服务。 主营商品：小食品、副食品、糖果、粮油、烟、酒、茶各种饮品等 </p>
+                        <p> 华北食品城位于河北省石家庄市平西路与西二环交叉口，主营 休闲食品/肉制品/乡吧佬系列/火腿腿系列/麻辣系列/泡爪系列…… 等。公司秉承“顾客至上，锐意进取”的经营理念，坚持“客户第一”的原则为广大客户提供优质的服务。欢迎惠顾 石家庄市西二环与和平路交叉口，南靠307国道，距石太高速公路2.5公里，距107国道复线2公里，市公交76路、快4路、旅游2路车直达食品城，公路运输四通八达，交通便利，地理位置极为优越。 华北食品城位于石家庄二环路市场带，南邻河北省最大的农产品批发市场---石家庄桥西蔬菜中心批发市场，北邻华闽日化百货，西邻东鑫商贸中心,华北食品城区位优势明显，是理想的经营场所。 　　 一期工程占地80余亩，经营门市800余间，批发商800余户，汇集了全国上千个知名厂家直销处及厂家总代理3万余个品种，经营品类包括各类小食品、副食品、糖果、粮油、烟、酒、茶各种饮品等。华北食品城规划建设布局合理，门市之间通道为封闭式大棚，可防雨、防晒，方便客商进行交易，是广大客户理想的货源基地。现日成交额1000万元，日客流量1万余人。食品城设有市场管理处，治安派出所，工商管理所，巡回法庭等管理机构，确保市场交易公平、公正。保安24小时昼夜服务，确保客户人身及货物的安全。同时食品城还建有铁路专用线，停车场、标准库房，住宿、餐饮，托运、银行、咨询处等完善配套的设施，为广大客户提供行情信息、代购、代销、运输、金融及吃、住、行等全方位服务。 主营商品：小食品、副食品、糖果、粮油、烟、酒、茶各种饮品等 </p>
                     </div>
                 </div>
                 <!-- 公司介绍 结束-->
@@ -177,38 +157,20 @@
                 <div class="r_content_box  ">
                     <div class="rb_title ">
                         <h3>最新供应</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="productShopWindow  clearfix  linebg ">
                         <ul>
+                         <{foreach $newrows as $row}>
                             <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
+                                <div class="pbox"> <img src="<{$row.goods_pic}>">
                                     <div class="des">
-                                        <span>价格:125元</span> 乡吧佬鸡腿
+                                        <p> 价格: <span> 面议</span></p>
+                                         <{$row.goods_name}>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 文字描述
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 文字描述
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 文字描述
-                                    </div>
-                                </div>
-                            </li>
+                          <{/foreach}>
                         </ul>
                     </div>
                 </div>
@@ -217,7 +179,7 @@
                 <div class="r_content_box">
                     <div class="rb_title">
                         <h3>联系我们</h3>
-                        <a href="#">更多>></a>
+                        <a href="#">更多  &gt;</a>
                     </div>
                     <div class="contact linebg">
                         <fieldset>
@@ -228,9 +190,9 @@
                             <br>
                             <span> 邮政编码: </span> <span>050000</span>
                             <br>
-                            <span> 电话: </span> <span>0311-85933630</span>
+                            <span> 电话: </span> <span>0311-8523872-8</span>
                             <br>
-                            <span> 手机: </span> <span> 13167389338</span>
+                            <span> 手机: </span> <span> 1316738933-8</span>
                             <br>
                             <span> 在线客服: </span> <span> </span>
                             <br>
@@ -246,15 +208,16 @@
     </div>
 
      <!-- 页脚开始 -->
-            <div class="footer ">
+            <div class="footer">
                 <ul>
                     <li>河北省石家庄市乡巴佬食品批发中心 版权所有</li>
-                    <li>地址:&nbsp;石家庄市华北食品城 电话:&nbsp;0311-85933630</li>
-                    <li> <span class="icp"> 沪ICP备08101087号&nbsp; /&nbsp;增值电信业务经营许可证:&nbsp;京ICP证010051号</span></li>
-                    <li> <span><a href="admin.php?p=Admin">管理员入口</a> | <a href="#">产品地图</a> | <a href="#">免责声明 | </a><a href="#">技术支持:慧聪</a></span> </li>
+                    <li>地址:&nbsp;石家庄市华北食品城 电话:&nbsp;0311-8523872-8</li>
+                    <li> <span class="icp"> 友情链接&nbsp;</span> <a href="http://www.xiangbalao.org"> 乡吧佬食品</a>&nbsp;&nbsp;<a href="http://www.huabeishipin.cn">华北食品城</a></li>
+                    <li> <span><a href="./admin.php?c=Index">管理员入口</a> | <a href="javascript:;">产品地图</a> | <a href="javascript:;">免责声明 | </a><a href="javascript:;">技术支持:北京龙套科技</a></span> </li>
                 </ul>
             </div>
             <!-- 页脚结束 -->
+                  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"1","bdPos":"right","bdTop":"149.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 </body>
 
 </html>

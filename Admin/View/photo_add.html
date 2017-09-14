@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>乡吧佬 - 后台管理</title>
+    <link rel="stylesheet" href="./Public/Admin/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Public/Admin/assets/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./Public/Admin/assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./Public/Admin/css/index.css">
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="aside">
+        <!-- 个人资料 -->
+        <div class="profile">
+            <!-- 头像 -->
+            <div class="avatar img-circle">
+                <img src="./Public/Admin/uploads/avatar.jpg">
+            </div>
+            <h4>管理员</h4>
+        </div>
+        <!-- 导航菜单 -->
+        <div class="navs">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="?" class="active">
+                        <i class="fa fa-dashboard"></i>
+                        仪表盘
+                    </a>
+                </li>
+                <li>
+                    <a href="?c=User&a=userList">
+                        <i class="fa fa-group"></i>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-indent"></i>
+                        品类管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=Category">
+                                分类管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=Brand">
+                                品牌管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-cubes pull-left"></i>
+                        商品管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=Goods">
+                                商品列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=Goods&a=goods_add">
+                                添加商品
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">   
+                        <i class="fa fa-camera pull-left"></i>
+                        相册管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=Photo">
+                                图片列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=Photo&a=photoAdd">
+                                添加图片
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">   
+                        <i class="fa fa-camera pull-left"></i>
+                        新闻管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=News">
+                                文章列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=News&a=newsAdd">
+                                添加文章
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <div class="header">
+                <nav class="navbar navbar-custom">
+                    <div class="navbar-header">
+                        <a href="javascript:;" class="navbar-brand">
+                            <i class="fa fa-navicon"></i>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="?c=User&a=settings">
+                                <i class="fa fa-user"></i>
+                                个人中心
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" id="logout">
+                                <i class="fa fa-sign-out"></i>
+                                退出
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <i class="fa fa-tasks"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- 讲师资料 -->
+            <div class="body">
+                <div class="goods-add">
+                    <form action="" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">商品图片</label>
+                            <div class="col-xs-2 preview">
+                                <img src="./Public/Admin/images/radish.jpg">
+                                <input type="password" style="height: 0px" type="hidden" name="photo" class="photo">
+                                <input type="password" style="height: 0px" type="hidden" name="photosmall" class="photosmall">
+                                <input type="file" id="upfile">
+                                <div class="cover">
+                                    <i class="fa fa-upload"></i>
+                                </div>
+                            </div>
+                            <div style="padding-top: 15px; display: block; font-size: 12px;">&nbsp; (小于2M,且不能以汉字命名)</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">图片名称</label>
+                            <div class="col-xs-5">
+                                <h6 id="proName"></h6>
+                                <input type="text" name="proName" data-required data-describedby="proName" data-description="proName" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">所属商品</label>
+                            <div class="col-xs-5">
+                                <select name="goodsId" id="goods" class="form-control input-sm">
+                                    <option value="0">请选择商品</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-8">
+                                <input type="submit" class="btn btn-success btn-sm pull-right" value="保 存">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/template" id="tpl">
+        {{each rows}}
+        <option value="{{$value.goods_id}}">
+            编号:&nbsp;{{$value.goods_id}} &emsp; {{$value.goods_name}}
+        </option>
+        {{/each}}
+    </script>
+    <script src="./Public/Admin/assets/jquery/jquery.min.js"></script>
+    <script src="./Public/Admin/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./Public/Admin/assets/nprogress/nprogress.js"></script>
+    <script src="./Public/Admin/assets/jquery-uploadify/jquery.uploadify.min.js"></script>
+    <script src="./Public/Admin/assets/artTemplate/template-web.js"></script>
+    <script src="./Public/Admin/assets/jquery-validate/jquery-validate.min.js"></script>
+    <script src="./Public/Admin/assets/jquery-form/jquery.form.js"></script>
+    <script src="./Public/Admin/js/Api.js"></script>
+    <script src="./Public/Admin/js/common.js"></script>
+    <script>
+    // 获取品牌
+    $.ajax({
+        url: Admin.goodsList,
+        type: 'get',
+        data: { page: 1, pageSize: 10 },
+        success: function(info) {
+            info = $.parseJSON(info);
+            console.log(info);
+            var html = template('tpl', info);
+            $('#goods').append(html);
+        }
+    })
+
+
+    // 图片上传
+    $('#upfile').uploadify({
+        width: 120,
+        height: 120,
+        buttonText: '',
+        fileObjName: 'photo',
+        uploader: Admin.photoUpload,
+        swf: './Public/Admin/assets/jquery-uploadify/uploadify.swf',
+        onUploadSuccess: function(file, data) {
+            // 转成 对象
+            console.log(data);
+            data = JSON.parse(data);
+            // 图片预览
+            $('.preview img').attr('src', data.path);
+            $('.photo').val(data.path);
+            $('.photosmall').val(data.smallpath);
+        }
+    });
+
+
+    // 
+    $('form').validate({
+        sendForm: false,
+        onKeyup: true,
+        eachValidField: function() {},
+        eachInvalidField: function() {},
+        valid: function() {
+            $(this).ajaxSubmit({
+                url: Admin.photoAdd,
+                type: 'post',
+                success: function(info) {
+                    info = JSON.parse(info);
+                    console.log(info);
+                    if (info.status) {
+                        location.href = '?c=Photo';
+                    }
+                }
+            });
+        },
+        description: {
+
+            proName: {
+                required: '商品名称不能为空',
+
+            }
+
+
+
+
+        }
+    });
+    </script>
+</body>
+
+</html>

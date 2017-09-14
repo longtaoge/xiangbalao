@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>乡吧佬 - 后台管理</title>
@@ -8,8 +9,8 @@
     <link rel="stylesheet" href="./Public/Admin/assets/nprogress/nprogress.css">
     <link rel="stylesheet" href="./Public/Admin/css/index.css">
 </head>
+
 <body>
-    
     <!-- 侧边栏 -->
     <div class="aside">
         <!-- 个人资料 -->
@@ -18,19 +19,19 @@
             <div class="avatar img-circle">
                 <img src="./Public/Admin/uploads/avatar.jpg">
             </div>
-            <h4>布头儿</h4>
+            <h4>管理员</h4>
         </div>
         <!-- 导航菜单 -->
         <div class="navs">
             <ul class="list-unstyled">
                 <li>
-                    <a href="./index.html">
+                    <a href="?" class="active">
                         <i class="fa fa-dashboard"></i>
                         仪表盘
                     </a>
                 </li>
                 <li>
-                    <a href="./user_list.html">
+                    <a href="?c=User&a=userList">
                         <i class="fa fa-group"></i>
                         用户管理
                     </a>
@@ -38,27 +39,78 @@
                 <li>
                     <a href="javascript:;">
                         <i class="fa fa-indent"></i>
-                        分类管理
+                        品类管理
                         <i class="arrow fa fa-angle-right"></i>
                     </a>
-                    <ul class="list-unstyled show">
+                    <ul class="list-unstyled">
                         <li>
-                            <a href="./category.html">
-                                 一级分类
+                            <a href="?c=Category">
+                                分类管理
                             </a>
                         </li>
                         <li>
-                            <a href="./brand.html" class="active">
-                                二级分类
+                            <a href="?c=Brand">
+                                品牌管理
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="./goods_list.html">
+                    <a href="javascript:;">
                         <i class="fa fa-cubes pull-left"></i>
                         商品管理
+                        <i class="arrow fa fa-angle-right"></i>
                     </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=Goods">
+                                商品列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=Goods&a=goodsAdd">
+                                添加商品
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">   
+                        <i class="fa fa-camera pull-left"></i>
+                        相册管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=Photo">
+                                图片列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=Photo&a=photoAdd">
+                                添加图片
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">   
+                        <i class="fa fa-camera pull-left"></i>
+                        新闻管理
+                        <i class="arrow fa fa-angle-right"></i>
+                    </a>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="?c=News">
+                                文章列表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?c=News&a=newsAdd">
+                                添加文章
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -76,13 +128,13 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="./settings.html">
+                            <a href="?c=User&a=settings">
                                 <i class="fa fa-user"></i>
                                 个人中心
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <a href="javascript:;" id="logout">
                                 <i class="fa fa-sign-out"></i>
                                 退出
                             </a>
@@ -93,7 +145,7 @@
                             </a>
                         </li>
                     </ul>
-                </nav>          
+                </nav>
             </div>
             <div class="body category">
                 <!-- 面包屑 -->
@@ -125,7 +177,7 @@
                             <label for="" class="col-xs-4 control-label">商品分类</label>
                             <div class="col-xs-4">
                                 <select name="categoryId" id="top" class="form-control input-sm">
-                                   <!--  <option value="">请选一级分类</option> -->
+                                    <!--  <option value="">请选一级分类</option> -->
                                 </select>
                             </div>
                         </div>
@@ -143,7 +195,7 @@
                         <div class="form-group">
                             <div class="col-xs-8">
                                 <input type="submit" class="btn btn-success btn-sm pull-right" value="保 存">
-                            </div>                          
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -165,70 +217,71 @@
     <script src="./Public/Admin/js/Api.js"></script>
     <script src="./Public/Admin/js/common.js"></script>
     <script>
-        // 取一级分类
-        $.ajax({
-            url: Admin.category_list,
-            type: 'get',
-            data: {page: 1, pageSize: 10},
-            success: function (info) {
-                info=$.parseJSON(info);
-               var html = template('tpl', info);
-               $('#top').append(html);
-            }
-        });
+    // 取一级分类
+    $.ajax({
+        url: Admin.categoryList,
+        type: 'get',
+        data: { page: 1, pageSize: 10 },
+        success: function(info) {
+            info = $.parseJSON(info);
+            var html = template('tpl', info);
+            $('#top').append(html);
+        }
+    });
 
-        // 图片上传
-        $('#upfile').uploadify({
-            width: 120,
-            height: 120,
-            buttonText: '',
-            fileObjName: 'brandLogo',
-            uploader: Admin.brandPicAdd,
-            swf: './Public/Admin/assets/jquery-uploadify/uploadify.swf',
-            onUploadSuccess: function (file, data) {
-                // console.log(data);
-                // 转成 对象
-                data = JSON.parse(data);
+    // 图片上传
+    $('#upfile').uploadify({
+        width: 120,
+        height: 120,
+        buttonText: '',
+        fileObjName: 'brandLogo',
+        uploader: Admin.brandPicAdd,
+        swf: './Public/Admin/assets/jquery-uploadify/uploadify.swf',
+        onUploadSuccess: function(file, data) {
+            // console.log(data);
+            // 转成 对象
+            data = JSON.parse(data);
 
-                console.log(data);
+            console.log(data);
 
-                // 图片预览
-                $('.preview img').attr('src', data.path);
+            // 图片预览
+            $('.preview img').attr('src', data.path);
 
-                $('.brandLogo').val(data.path);
-            }
-        });
+            $('.brandLogo').val(data.path);
+        }
+    });
 
-        // 验证表单
-        $('form').validate({
-            sendForm: false,
-            onKeyup: true,
-            valid: function () {
-                $(this).ajaxSubmit({
-                    url: Admin.brandAdd,
-                    type: 'post',
-                    // data: {},
-                    success: function (info) {
-                        console.log(info);
-                        info=$.parseJSON(info);
-                        if(info.status) {
-                            alert('添加成功');
-                            location.href = '?a=brand';
-                        }else{
-                             alert('添加失败');
-                        }
+    // 验证表单
+    $('form').validate({
+        sendForm: false,
+        onKeyup: true,
+        valid: function() {
+            $(this).ajaxSubmit({
+                url: Admin.brandAdd,
+                type: 'post',
+                // data: {},
+                success: function(info) {
+                    console.log(info);
+                    info = $.parseJSON(info);
+                    if (info.status) {
+                        alert('添加成功');
+                        location.href = '?c=Brand';
+                    } else {
+                        alert('添加失败');
                     }
-                });
-            },
-            description: {
-                brand_name: {
-                    required: '品牌名不能为空',
-                    pattern: '长度不能小于6位'
                 }
-
-
+            });
+        },
+        description: {
+            brand_name: {
+                required: '品牌名不能为空',
+                pattern: '长度不能小于6位'
             }
-        });
+
+
+        }
+    });
     </script>
 </body>
+
 </html>

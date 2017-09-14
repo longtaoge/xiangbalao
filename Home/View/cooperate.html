@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./Public/Home/css/base.css">
+    <link rel="stylesheet" type="text/css" href="./Public/Home/css/index.css">
+    <link rel="stylesheet" type="text/css" href="./Public/Home/css/customer.css">
+</head>
+
+<body>
+    <!-- 通用背景 -->
+    <div class="bodybg">
+    </div>
+    <div class="box w ">
+        <div class="contentbg w">
+        </div>
+        <div class="banner w">
+            <img src="./Public/Home/img/bannerbg.gif">
+        </div>
+        <!--  导航区 -->
+        <div class="nav w ">
+            <ul clearfix>
+                <li><a href="?">  首页 </a></li>
+                <li><a href="?c=Introduce">公司介绍</a></li>
+                <li><a href="?c=Category" >供应产品</a></li>
+                <li><a href="?c=Photo">公司相册</a></li>
+                <li><a href="?c=News">公司动态</a></li>
+                <li><a href="?c=Cooperate" class="activity">合作交流</a></li>
+                <li><a href="?c=Customer">客户见证</a></li>
+                <li><a href="?c=Map">公司地图</a></li>
+                <li><a href="?c=Contact" >联系我们</a></li>
+            </ul>
+        </div>
+        <!-- 广告区 -->
+        <div class="ad w ">
+            <img src="./Public/Home/img/ad.bmp">
+            <div class="contentbg w">
+            </div>
+        </div>
+        <!-- 内容区 -->
+        <div class="content   w ">
+            <!-- 左侧 -->
+            <div class="l_content ">
+                <!-- 企业档案 -->
+                <div class="l_content_box">
+                    <div class="lb_title">
+                        <h3>企业档案</h3>
+                        <a href="#">更多  &gt;</a>
+                    </div>
+                    <h4>河北石家庄华北食品城石家庄乡巴佬食品商行</h4>
+                    <div class="des">
+                         <div> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2357261533&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2357261533:51" alt="与我联系" title="与我联系"/></a>
+                         <br>
+                        </div>  
+                        <p> 工商注册信息：已认证</p>
+                        <p> 所在地区：河北省 石家庄市</p>
+                    </div>
+                </div>
+                <!-- 产品分类 -->
+                <div class="l_content_box">
+                    <div class="lb_title">
+                        <h3>产品分类</h3>
+                        <a href="#">更多  &gt;</a>
+                    </div>
+                    <div class="product_type">
+                        <ul>
+                        <{foreach $categorys as $row}>
+                       <li><a href="javascript:;"><{$row.catagory_name}></a></li>
+                        <{/foreach}>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 分司动态 -->
+                <div class="l_content_box">
+                    <div class="lb_title">
+                        <h3>公司动态</h3>
+                        <a href="#">更多  &gt;</a>
+                    </div>
+                    <div class="product_type">
+                        <ul>
+                            <{foreach $news as $row}>
+                            <li><a href="javascript:;"><{$row.title}></a></li>
+                            <{/foreach}>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 相册橱窗 -->
+                <div class="l_content_box">
+                    <div class="lb_title">
+                        <h3>相册橱窗</h3>
+                        <a href="#">更多  &gt;</a>
+                    </div>
+                    <div class="product_img">
+                        <ul>
+                         <{foreach $photos as $row}>
+                          <a href="javascript:;"><img src="<{$row.photo_url}>"></a>
+                          <{/foreach}>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 最新供应 -->
+                <div class="l_content_box">
+                    <div class="lb_title">
+                        <h3>最新供应</h3>
+                        <a href="#">更多  &gt;</a>
+                    </div>
+                    <div class="product_img">
+                        <ul>
+                          <{foreach $lnewgoods as $row}>
+                          <a href="javascript:;"><img src="<{$row.goods_pic}>"></a>
+                          <{/foreach}>
+                        </ul>
+                    </div>
+                </div>
+                <div class="l_content_box">
+                    <div class="lb_title">
+                        <h3>联系我们</h3>
+                        <a href="#">更多  &gt;</a>
+                    </div>
+                    <div class="des">
+                        <p> 联系人 : 魏先生 </p>
+                        <p> 电&nbsp;&nbsp;&nbsp;话: 311-8523872-8</p>
+                        <p> 手&nbsp;&nbsp;&nbsp;机: 1316738933-8</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧 -->
+            <div class="r_content">
+                <!-- 地图 开始-->
+                <div class="r_content_box">
+                    <div class="rb_title">
+                        <h3>合作交流</h3>
+                    </div>
+                    <div class="customer">
+                        <div class="des"> 合作交流 </div>
+                          
+                                <div class="contents"  >
+
+                        欢迎食品及相关行业朋友全作交流,如需了解石家庄及河北周边最新肉制品市场行情,请找群主了解.
+                                 <img src="./Public/Home/img/huabeishipin.png">
+                                  
+                                </div>
+
+                            
+                        </div>
+                    </div>
+                    <!-- 地图 结束-->
+                </div>
+            </div>
+        </div>
+        <!-- 页脚开始 -->
+        <div class="footer ">
+               <ul>
+                    <li>河北省石家庄市乡巴佬食品批发中心 版权所有</li>
+                    <li>地址:&nbsp;石家庄市华北食品城 电话:&nbsp;0311-8523872-8</li>
+                    <li> <span class="icp"> 友情链接&nbsp;</span> <a href="http://www.xiangbalao.org"> 乡吧佬食品</a>&nbsp;&nbsp;<a href="http://www.huabeishipin.cn">华北食品城</a></li>
+                    <li> <span><a href="#">管理员入口</a> | <a href="javascript:;">产品地图</a> | <a href="javascript:;">免责声明 | </a><a href="javascript:;">技术支持:北京龙套科技</a></span> </li>
+                </ul>
+        </div>
+        <!-- 页脚结束 -->
+       
+ 
+</body>
+
+</html>

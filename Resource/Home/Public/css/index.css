@@ -2,7 +2,7 @@
 * @Author: longtaoge
 * @Date:   2017-05-20 21:39:03
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-06 20:36:21
+* @Last Modified time: 2017-09-13 21:12:34
 */
 html{
 
@@ -38,15 +38,15 @@ body{
 
 /* 导航开始 */
 .nav{
-	height: 38px;
-   background: url(../img/navbg.jpg);
-  
 
+ 	height: 45px;
+    background: url(../img/navbg.jpg);
+  
 }
 
 .nav  ul{
   
-  width: 630px;
+   width: 790px;
    margin: 0 auto;
 }
 .nav li{
@@ -56,22 +56,22 @@ body{
 
 
 .nav li a{
-
-    height: 38px;
+	font-size: 16px;
+    height: 45px;
     display: block;
-    line-height: 38px;
+    line-height: 45px;
 	color: #ffffff;
 	padding-left: 11px;
 	padding-right: 11px;
 	min-width: 4em;
-     text-align: center;
-	font-weight: 800;
+    text-align: center;
+	font-weight: 600;
 	
 }
 
 .nav li a:hover{
    
-	background: url(../img/navhoverbg.jpg);
+	background: url(../img/navhoverbg2.jpg);
 }
 
 
@@ -125,16 +125,18 @@ background: #ffffff;
 .content .lb_title{
     margin-top:  15px;
    text-align: center;
-   height: 24px;
-   line-height: 24px;
+   height: 38px;
+   line-height: 38px;
 	background: url(../img/leftTitleBg.gif) no-repeat;
-	padding: 0px 10px;
+	padding: 0px 15px;
+	background-size: cover;
 
 }
 
 .content .lb_title h3{
 	display: block;
 	float: left;
+
 }
 
 .content .lb_title a{
@@ -143,12 +145,12 @@ background: #ffffff;
 }
 
 .content  h4{
-	 padding: 10px 10px 0px 10px;
+	 padding: 15px 10px 0px 15px;
 }
 .content .l_content .l_content_box .des{
 
-	padding: 0px 10px 5px 10px;
-	 line-height: 25px;
+	padding: 15px 30px 50px 15px;
+	line-height: 25px;
 
 }
 .content .l_content .l_content_box .des p{
@@ -184,7 +186,7 @@ background: #ffffff;
  	display: block;
     vertical-align: center;
     text-align: center;
-    width: 60%;
+    width: 80%;
 	margin: 0px auto;
     padding: 10px;
 	border-bottom: 1px dashed #ccc;
@@ -193,7 +195,14 @@ background: #ffffff;
 }
 
 
+.content .l_content  .product_img a img{
+ 	 
+   	width: 160px;
+   	height: 120px;
+	margin: 0px auto;
+    border: 0.5px solid rgba(98,200, 20, 0.4);
 
+}
 
 
 /* 右侧内容 */
@@ -212,10 +221,11 @@ margin-bottom: 50px;
 .content .r_content .rb_title{
      margin-top:  15px;
    text-align: center;
-   height: 30px;
-   line-height: 30px;
+   height: 38px;
+   line-height: 38px;
 	background: url(../img/No1TitleBg.gif) no-repeat;
-	padding: 0px 30px;
+	padding: 0px 20px 0px 70px;
+	background-size: cover;
 }
 
 .content .r_content .rb_title h3{
@@ -250,7 +260,7 @@ margin-bottom: 50px;
 
 
 .content .r_content .enter_des p{
-	  font-size: 13px;
+	 /*  font-size: 13px; */
 }
 
 
@@ -270,7 +280,6 @@ margin-bottom: 50px;
  
  width: 25%;
  margin: 0 auto;
-
  display: block;
  float: left;
  position: relative;
@@ -282,13 +291,25 @@ margin-bottom: 50px;
  align-self: center;
  margin: 10px auto;
  width: 90%;
- padding: 5px;
+ padding: 0px;
  height: 90px;
- border: 1px solid #ff00ff;
+ border: 1px solid yellowgreen;
 
 }
 
 
+
+.content .r_content .productShopWindow ul li:nth-child(4n) .pbox img:hover{
+     overflow: visible ;
+     position: absolute;
+     left: -130px;
+	 width: 300px;
+	 margin-right:  300px;
+	 height: 300px;
+	  
+	 z-index: 2;
+
+}
 
 .content .r_content .productShopWindow ul .pbox img:hover {
 	 overflow: visible ;
@@ -306,7 +327,7 @@ margin-bottom: 50px;
 }
 
 .content .r_content .productShopWindow .pbox .des span{
-	display: block;
+	display: inline-block;
 	color: red;
 	padding-bottom: 5px;
 	
@@ -338,7 +359,8 @@ line-height: 25px;
 
 
 /**公用页脚开始**/
-.footer{
+ .footer{
+	margin: 0px auto;
 	width: 100%;
 	margin-top: 10px;
 	line-height: 25px;
@@ -348,14 +370,30 @@ line-height: 25px;
 	text-align: center;
 	padding-top: 10px;
 	padding-bottom: 20px;
+	min-width:980px;
 	 
 }
 
 
-.footer p{
-	text-align: center;
-	font-size: 13px;
+
+@media all and (width:980px){
+	 .footer{
+	 	width: 100%;
+	 }
 }
+
+@media all and (width:360px){
+	 .footer{
+	 	width: 970px;
+	 }
+}
+
+@media only screen  add(max-width:480px){
+      .footer{
+	 	width: 970px;
+	 }		
+}
+
 
 .footer   .icp{
 
@@ -368,13 +406,7 @@ line-height: 25px;
 
 }
 
-.footer p span{
-  
-  margin: 0px auto;
- 
- 
 
-}
 
 
 

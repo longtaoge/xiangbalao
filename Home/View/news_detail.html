@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./Public/Home/css/base.css">
+    <link rel="stylesheet" type="text/css" href="./Public/Home/css/index.css">
+    <link rel="stylesheet" type="text/css" href="./Public/Home/css/news.css">
+</head>
+
+<body>
+    <!-- 通用背景 -->
+    <div class="bodybg">
+    </div>
+    <div class="box w ">
+        <div class="contentbg w">
+        </div>
+        <div class="banner w">
+            <img src="./Public/Home/img/bannerbg.gif">
+        </div>
+        <!--  导航区 -->
+        <div class="nav w ">
+            <ul clearfix>
+               <li><a href="?"  >  首页 </a></li>
+                <li><a href="?c=Introduce"  >公司介绍</a></li>
+                <li><a href="?c=Category" >供应产品</a></li>
+                <li><a href="?c=Photo">公司相册</a></li>
+                <li><a href="?c=News" class="activity" >公司动态</a></li>
+                <li><a href="?c=Cooperate">合作交流</a></li>
+                <li><a href="?c=Customer" >客户见证</a></li>
+                <li><a href="?c=Map" >公司地图</a></li>
+                <li><a href="?c=Contact" >联系我们</a></li>
+            </ul>
+        </div>
+        <!-- 广告区 -->
+        <div class="ad w ">
+            <img src="./Public/Home/img/ad.bmp">
+            <div class="contentbg w">
+            </div>
+        </div>
+        <!-- 内容区 -->
+        <div class="content   w ">
+          
+
+            <div class="news_content bgline "> 
+                <div class="title"> <{$news.title}></div>
+                <div class="des">
+                <div class="author">作者: <{$news.author}></div>
+                <div class="source">来源: <{$news.source}></div>
+                <div class="publish_time">发布时间: <{$news.publish_time|date_format:"Y/m/d"}></div>
+                 </div>
+                 <hr>
+                
+                <div class="content"><{$news.content}> </div>
+            </div>
+            
+                    
+            
+
+        </div>
+    </div>
+ 
+ 
+    
+
+   
+
+
+  
+
+
+</body>
+
+</html>

@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-10 21:06:57
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-10 21:26:18
+ * @Last Modified time: 2017-09-12 12:40:19
  */
 namespace Frame\Libs;
 final class ImageTool {
@@ -88,7 +88,7 @@ private function cropBmp($path,$des_w,$des_h,$replace=false){
 	//使用原图创建画布
 	list($src_w,$src_h)=getimagesize($path);
  
-	if ($src_w<$des_w&&$src<$src_h) {
+	if ($src_w<$des_w&&$src_h<$src_h) {
 
 		 return $path;
 
@@ -129,7 +129,7 @@ private function cropGif($path,$des_w,$des_h,$replace=false){
 	//使用原图创建画布
 	list($src_w,$src_h)=getimagesize($path);
  
-	if ($src_w<$des_w&&$src<$src_h) {
+	if ($src_w<$des_w&&$src_h<$src_h) {
 		 return $path;
 		}else{
 		$ratio_w = $src_w/$des_w;
@@ -171,7 +171,7 @@ private function cropJpeg($path,$des_w,$des_h,$replace=false){
 
 		//使用原图创建画布
 	list($src_w,$src_h)=getimagesize($path);
-	if ($src_w<$des_w&&$src<$src_h) {
+	if ($src_w<$des_w&&$src_h<$src_h) {
 		return $path; 
 	}else{
 

@@ -2,18 +2,18 @@
 * @Author: longtaoge
 * @Date:   2017-09-05 15:56:08
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-05 15:56:26
+* @Last Modified time: 2017-09-14 12:01:03
 */
-  //当前显示的轮播项的索引
-    var nextIndex = 0; //控制切换的索引 下一个
+window.onload=function(){
 
+   //当前显示的轮播项的索引
+    var nextIndex = 0; //控制切换的索引 下一个
     //所有大图的集合
     var bigimgs = document.querySelector('.bigimg').querySelectorAll('img');
     //所有小图的集合
     var smallimgs = document.querySelector('.smallimg').querySelectorAll('.border');
-
     var potho = document.querySelector('.potho');
-
+    var tiptitle =document.querySelector("#tiptitle");
     //点击事件
     potho.onclick = function(e) {
         //点击事件兼容
@@ -37,6 +37,7 @@
                 }
             }
             console.log(nextIndex);
+
             //TODO 修改样式
             change();
         } else if (_target.className.toLowerCase() == "mask") {
@@ -70,6 +71,7 @@
             for (var i = 0; i < mask.length; i++) {
                 if (mask[i] == _target) {
                     console.log(i);
+
                     nextIndex = i;
                 }
             }
@@ -90,5 +92,14 @@
         }
         bigimgs[nextIndex].className = 'activi';
         smallimgs[nextIndex].className = 'border activi';
-
+         
+         var title=bigimgs[nextIndex].getAttribute('alt');
+         tiptitle.innerText=title;
+         //console.log(tiptitle);
+        // console.log(title);
     }
+
+
+
+
+}

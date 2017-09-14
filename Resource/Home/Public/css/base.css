@@ -2,7 +2,7 @@
 * @Author: longtaoge
 * @Date:   2017-05-20 21:32:11
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-08-28 08:25:11
+* @Last Modified time: 2017-09-12 20:25:13
 */
 
 
@@ -13,10 +13,14 @@ html,body,div,h1,h2,h3,h4,h5,h6,ol,ul,dl,li,tl,td,p{
 	margin: 0px;
 
 	list-style: none;
-	font-size: 14px;
+	font-size: 16px;
 
 }
 
+
+html,body{
+	width: 100%;
+}
 
 input,img{
     display: block;
@@ -25,7 +29,10 @@ input,img{
 	margin: 0px;
 	
 }
-
+h3{
+	font-size: 16px;
+	color:rgba(0, 0, 0, 0.72);
+}
 
 a{
 
@@ -62,8 +69,9 @@ overflow: hidden;
  */
 .linebg{
 
-  background-color: #EAEAEA;  
+ /* background-color: #EAEAEA;   */
+  background-color:rgba(255, 255, 255,0.6);  
   background-size: 4px 4px;   
-  background-image: linear-gradient(rgba(255, 255, 255,0.6) 50%, transparent 50%, transparent);  
-
+  /* background-image: linear-gradient(rgba(255, 255, 255,0.6) 50%, transparent 50%, transparent);   */
+ 
 }
