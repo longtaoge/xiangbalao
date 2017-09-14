@@ -110,9 +110,9 @@
                     </div>
                     <div class="product_img">
                         <ul>
-                            <{foreach $lnewgoods as $row}>
-                            <a href="javascript:;"><img src="<{$row.goods_pic}>"></a>
-                           <{/foreach}>
+                         <{section name=index start=0 loop=2 step=1}>
+                          <a href="javascript:;"><img src="<{$newgoods[index].goods_pic}>"></a>
+                         <{/section}>
                         </ul>
                     </div>
                 </div>
@@ -138,16 +138,13 @@
                     </div>
                     <div class="potho">
                         <div class="bigimg clearfix " id="bigimg">
-
-                         
                             <{foreach $categoryPhoto as $row}>
                             <img class="activi" src="<{$row.photo_url}>" alt="<{$row.photo_des}>" />
                             <{/foreach}>
                             <div class="tip" id="tip">
                                 <h3 id="tiptitle"></h3>
                                 <a class="l" href="javascript:void(0)"> > </a>
-                                <a class="r" href="javascript:void(0)">
-                                    < </a>
+                                <a class="r" href="javascript:void(0)">  < </a>
                             </div>
                         </div>
                         <div class="smallimg clearfix " id="smallimg">
@@ -167,7 +164,7 @@
                     </div>
                     <div class="productCategory linebg  clearfix">
                         <ul>
-                            <li><a href="?c=Photo&a=photosDetail">全部</a></li>
+                        <li><a href="?c=Photo&a=photosDetail">全部</a></li>
                                 <{foreach $categorys as $row}>
                         <li><a href="?c=Photo&a=photosDetail&id=<{$row.category_id}>"> 
                                 <{$row.catagory_name}></a></li>

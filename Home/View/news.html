@@ -105,9 +105,9 @@
                     </div>
                     <div class="product_img">
                         <ul>
-                          <{foreach $lnewgoods as $row}>
-                          <a href="javascript:;"><img src="<{$row.goods_pic}>"></a>
-                          <{/foreach}>
+                          <{section name=index start=0 loop=2 step=1}>
+                          <a href="javascript:;"><img src="<{$newgoods[index].goods_pic}>"></a>
+                         <{/section}>
                         </ul>
                     </div>
                 </div>
@@ -155,13 +155,7 @@
                         <{$row.title}> </a></li>
                         <{/foreach}>  
                       </ul>
-
                     </div>
-
-                   
-
-
-
                 </div>
                 <!-- 公司动态 结束-->
                 <!-- 产品橱窗 开始-->
@@ -172,14 +166,7 @@
                     </div>
                     <div class="productShopWindow linebg  clearfix  ">
                         <ul>
-                            <li>
-                                <div class="pbox"> <img src="./Public/Home/img/shipincheng.jpg">
-                                    <div class="des">
-                                        <span>价格:125元</span> 乡吧佬鸡腿
-                                    </div>
-                                </div>
-                            </li>
-                            <{foreach $rows as $row}>
+                            <{foreach $goods as $row}>
                             <li>
                                 <div class="pbox"> <img src="<{$row.goods_pic}>">
                                     <div class="des">

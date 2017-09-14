@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-13 20:03:39
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-14 14:31:37
+ * @Last Modified time: 2017-09-14 20:42:53
  */
 namespace Home\Model;
 use Frame\Libs\BaseModel;
@@ -32,7 +32,10 @@ final class PhotoModel extends BaseModel {
   }
 
 
-
+  /**
+   * [getPhotosByCategory 获取分类图片]
+   * @return [type] [description]
+   */
   public function getPhotosByCategory(){
 
   	$category_id=isset($_REQUEST['id'])?$_REQUEST['id']:0;
@@ -57,6 +60,31 @@ final class PhotoModel extends BaseModel {
  	return $data;
 
   }
+
+
+
+/** 
+ * 获取商品图片
+ */
+public function getPhotosByGoods(){
+
+     $goods_id=isset($_REQUEST['goods_id'])?$_REQUEST['goods_id']:0;
+     $sql=" select  *  from {$this->table}  where goods_id = {$goods_id}  ";
+     $res= $this->pdo->fetchAll($sql);
+    if ($res) {      
+        $data['status']=1;
+          $data['msg']='查询成功';
+          $data['rows']=$res;
+    }else{
+        $data['status']=0;
+          $data['msg']='查询失败';
+          $data['rows']=[];
+        }
+
+  return $data;
+
+  }
+
 
 
 

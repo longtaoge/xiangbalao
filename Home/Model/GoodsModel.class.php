@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-13 11:05:40
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-14 18:03:36
+ * @Last Modified time: 2017-09-14 19:26:59
  */
 namespace Home\Model;
 use Frame\Libs\BaseModel;
@@ -41,10 +41,7 @@ final class GoodsModel extends BaseModel{
  	public function getDetail(){
 
  		$goods_id=isset($_REQUEST['goods_id'])?$_REQUEST['goods_id']:0;
- 		 
  		$sql="select g.*, b.brand_name  from {$this->table} as g join xb_brand as b where goods_id ={$goods_id}  and g.brand_id = b.brand_id";
-
-
  		$res= $this->pdo->fetchOne($sql);
 		if ($res) {			 
 				$data['status']=1;

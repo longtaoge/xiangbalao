@@ -2,7 +2,7 @@
 * @Author: longtaoge
 * @Date:   2017-09-05 16:39:55
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-05 17:48:00
+* @Last Modified time: 2017-09-14 21:06:50
 */
 
 .box {
@@ -25,7 +25,7 @@
 .content {
     margin-top: 10px;
     background-color: rgba(255, 255, 255, 0.8);
-    height: 800px;
+    height: 462px;
 }
 
 
@@ -66,8 +66,8 @@
 
     width: 80px;
     height: 40px;
-
-    background: yellowgreen;
+    
+   /*  background: yellowgreen; */
     border-radius: 5px;
     color: #fff;
     text-align: center;
@@ -120,6 +120,7 @@
 .potho .bigimg img {
     float: left;
     display: none;
+    height: 320px;
     position: absolute;
 }
 
@@ -168,6 +169,7 @@
 
 .potho .smallimg li img {
     width: 100%;
+    height: 60px;
 }
 
 
@@ -240,6 +242,16 @@
 .smallimg ul li:hover .border {
     display: block;
 }
+
+
+.goodsdetail{
+  width: 100%;
+  padding: 50px;
+  box-sizing: border-box;
+  background:  rgba(255, 255, 255, 0.8);
+   
+}
+
 
 
 

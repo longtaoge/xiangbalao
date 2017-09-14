@@ -59,18 +59,6 @@
                         
                     </div>
                 </div>
-                <!-- 产品分类 -->
-                <div class="l_content_box">
-                    <div class="lb_title">
-                        <h3>产品分类</h3>
-                       
-                    </div>
-                    <div class="product_type">
-                        <ul>
-                           
-                        </ul>
-                    </div>
-                </div>
                 <!-- 分司动态 -->
                 <div class="l_content_box">
                     <div class="lb_title">
@@ -99,18 +87,7 @@
                         </ul>
                     </div>
                 </div>
-                <!-- 最新供应 -->
-                <div class="l_content_box">
-                    <div class="lb_title">
-                        <h3>最新供应</h3>
-                       
-                    </div>
-                    <div class="product_img">
-                        <ul>
-                           
-                        </ul>
-                    </div>
-                </div>
+              
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>联系我们</h3>
@@ -172,7 +149,28 @@
                 </div>
                 <!-- 产品橱窗 结束-->
                
-                
+                   <!-- 最新供应 开始-->
+                <div class="r_content_box  ">
+                 <div class="rb_title ">
+                     <h3>最新供应</h3>
+                     <a href="#">更多  &gt;</a>
+                 </div>
+                 <div class="productShopWindow  clearfix  linebg ">
+                     <ul>
+                      <{foreach $newgoods as $row}>
+                         <li>
+                             <div class="pbox"> <img src="<{$row.goods_pic}>">
+                                 <div class="des">
+                                     <p> 价格: <span> 面议</span></p>
+                                      <{$row.goods_name}>
+                                 </div>
+                             </div>
+                         </li>
+                       <{/foreach}>
+                     </ul>
+                 </div>
+               </div> 
+                <!-- 最新供应 结束-->
                 
             
             </div>

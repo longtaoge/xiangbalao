@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-13 19:30:37
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-14 17:43:33
+ * @Last Modified time: 2017-09-15 00:41:08
  */
 namespace Home\Model;
 use Frame\Libs\BaseModel;
@@ -13,66 +13,47 @@ use Home\Model\NewsModel;
 use Home\Model\PhotoModel;
 final class SuperModel  extends BaseModel{
 
-
-
-
-
-
-	/** 
-	 * [getIndex 获取首页数据]
-	 * @return [type] [description]
-	 */
-	public  function getIndex(){
-
-		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,4);
-		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,4);
-		//左侧
-		$categorys =CategoryModel::getInstance()->fetchSomeIndex('ASC',1,5);
-		$news= NewsModel::getInstance()->fetchSomeIndex('ASC',1,5);
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
-		$lnewgoods= GoodsModel::getInstance()->fetchAllList('DESC',3,2);
-		$datas=array(
-			'rows'=> $goods['rows'],
-			'newrows'=> $newgoods['rows'],
-			'categorys'=> $categorys['rows'],
-			'photos'=> $photos['rows'],
-			'news'=> $news['rows'],
-			'lnewgoods'=> $lnewgoods['rows'],
-			);
-
-
-		return $datas;
-	}
+	private $goods=null;
+	private $newgoods=null;
+	private $categorys=null;
+	private $news=null;
+	private $photos=null;
+	
 
 
 	/**
-	 * [getIntroduce 获取公司介绍页面信息]
-	 * @return [type] [description]
+	 * [__call description]
+	 * @param  [type] $name      [description]
+	 * @param  [type] $arguments [description]
+	 * @return [type]            [description]
 	 */
-	public function getIntroduce(){
+	public function __call($name, $arguments){
 
-		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,4);
-		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,4);
-		//左侧
-		$categorys =CategoryModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$news= NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
-	
+		// 产品橱窗
+		$this->goods=$this->goods!=null?$this->goods:GoodsModel::getInstance()->fetchAllList('ASC',1,4);
+		//最新供应
+		$this->newgoods=$this->newgoods!=null?$this->newgoods:GoodsModel::getInstance()->fetchAllList('DESC',1,4);
+		//左侧分类
+		$this->categorys=$this->categorys!=null?$this->categorys:CategoryModel::getInstance()->fetchSomeIndex('ASC',1,3);
+		//新闻列表
+		$this->news=$this->news!=null?$this->news:NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
+		//相册橱窗
+		$this->photos= $this->photos!=null?$this->photos:PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
 
-		$lnewgoods= GoodsModel::getInstance()->fetchAllList('DESC',3,2);
 		$datas=array(
-			'rows'=> $goods['rows'],
-			'newrows'=> $newgoods['rows'],
-			'categorys'=> $categorys['rows'],
-			'photos'=> $photos['rows'],
-			'news'=> $news['rows'],
-			'lnewgoods'=> $lnewgoods['rows'],
-			
+			'goods'=> $this->goods['rows'],
+			'newgoods'=> $this->newgoods['rows'],
+			'categorys'=> $this->categorys['rows'],
+			'photos'=> $this->photos['rows'],
+			'news'=> $this->news['rows'],
 			);
 
-
 		return $datas;
+
 	}
+
+
+	 
 
 
 	/**
@@ -81,17 +62,21 @@ final class SuperModel  extends BaseModel{
 	 */
 	public function getCategory(){
 
-		$goods= GoodsModel::getInstance()->fetchAllList('DESC',1,100);
-		//左侧
-		$categorys =CategoryModel::getInstance()->fetchSomeIndex('ASC',1,100);
-		$news= NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,5);
-	
+		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,100);
+		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,100);
+		//左侧分类
+		$this->categorys=$this->categorys!=null?$this->categorys:CategoryModel::getInstance()->fetchSomeIndex('ASC',1,3);
+		//新闻列表
+		$this->news=$this->news!=null?$this->news:NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
+		//相册橱窗
+		$this->photos= $this->photos!=null?$this->photos:PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
+
 		$datas=array(
 			'rows'=> $goods['rows'],
-			'categorys'=> $categorys['rows'],
-			'photos'=> $photos['rows'],
-			'news'=> $news['rows'],
+			'categorys'=>$this->categorys['rows'],
+			'photos'=> $this->photos['rows'],
+			'news'=> $this->news['rows'],
+			'newgoods'=> $newgoods['rows'],
 			);
 
 		return $datas;
@@ -106,19 +91,21 @@ final class SuperModel  extends BaseModel{
 
 		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,4);
 		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,100);
-		//左侧
-		$categorys =CategoryModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$news= NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,50);
+	    //左侧分类
+		$this->categorys=$this->categorys!=null?$this->categorys:CategoryModel::getInstance()->fetchSomeIndex('ASC',1,3);
+		//新闻列表
+		$this->news=$this->news!=null?$this->news:NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
+		//相册橱窗
+		$this->photos= $this->photos!=null?$this->photos:PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
+
+
 		$photoGroup=PhotoModel::getInstance()->getPhotoGroup();
-		$lnewgoods= GoodsModel::getInstance()->fetchAllList('DESC',3,2);
 		$datas=array(
-			'rows'=> $goods['rows'],
-			'newrows'=> $newgoods['rows'],
-			'categorys'=> $categorys['rows'],
-			'photos'=> $photos['rows'],
-			'news'=> $news['rows'],
-			'lnewgoods'=> $lnewgoods['rows'],
+			'goods'=> $goods['rows'],
+			'categorys'=> $this->categorys['rows'],
+			'photos'=>$this->photos['rows'],
+			'news'=> $this->news['rows'],
+			'newgoods'=> $newgoods['rows'],
 			'photoGroup'=> $photoGroup['rows'],
 			);
 
@@ -131,24 +118,22 @@ final class SuperModel  extends BaseModel{
 	 * @return [type] [description]
 	 */
 	public function getPhotobyGoods(){
-
-
-		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,4);
 		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,3);
 		//左侧
 		$categorys =CategoryModel::getInstance()->fetchSomeIndex('ASC',1,100);
-		$news= NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
+
+		//新闻列表
+		$this->news=$this->news!=null?$this->news:NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
+		//相册橱窗
+		$this->photos= $this->photos!=null?$this->photos:PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
+
 		//分类图片
 		$categoryPhoto=PhotoModel::getInstance()->getPhotosByCategory();
-		$lnewgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,2);
 		$datas=array(
-			'rows'=> $goods['rows'],
-			'newrows'=> $newgoods['rows'],
+			'newgoods'=> $newgoods['rows'],
 			'categorys'=> $categorys['rows'],
-			'photos'=> $photos['rows'],
-			'news'=> $news['rows'],
-			'lnewgoods'=> $lnewgoods['rows'],
+			'photos'=> $this->photos['rows'],
+			'news'=> $this->news['rows'],
 			'categoryPhoto'=> $categoryPhoto['rows'],
 			);
 
@@ -157,146 +142,7 @@ final class SuperModel  extends BaseModel{
 	}
 
 
-	/** 
-	 * [getNews 获取新闻页数据]
-	 * @return [type] [description]
-	 */
-	public function getNews(){
 
-		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,4);
-		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,3);
-		//左侧
-		$categorys =CategoryModel::getInstance()->fetchSomeIndex('ASC',1,100);
-		$news= NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
-		//分类图片
-		$categoryPhoto=PhotoModel::getInstance()->getPhotosByCategory();
-		$lnewgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,2);
-		$datas=array(
-			'rows'=> $goods['rows'],
-			'newrows'=> $newgoods['rows'],
-			'categorys'=> $categorys['rows'],
-			'photos'=> $photos['rows'],
-			'news'=> $news['rows'],
-			'lnewgoods'=> $lnewgoods['rows'],
-			'categoryPhoto'=> $categoryPhoto['rows'],
-			);
-
-		return $datas;
-
-	}
-
-
-	/**
-	 * [getCooperate 全作交流页数据]
-	 * @return [type] [description]
-	 */
-	public function getCooperate(){
-
-		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,4);
-		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,3);
-		//左侧
-		$categorys =CategoryModel::getInstance()->fetchSomeIndex('ASC',1,100);
-		$news= NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
-		//分类图片
-		$categoryPhoto=PhotoModel::getInstance()->getPhotosByCategory();
-		$lnewgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,2);
-		
-		$datas=array(
-			'rows'=> $goods['rows'],
-			'newrows'=> $newgoods['rows'],
-			'categorys'=> $categorys['rows'],
-			'photos'=> $photos['rows'],
-			'news'=> $news['rows'],
-			'lnewgoods'=> $lnewgoods['rows'],
-			'categoryPhoto'=> $categoryPhoto['rows'],
-			);
-
-		return $datas;
-
-	}
-
-	public function  getCustomer(){
-
-		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,4);
-		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,3);
-		//左侧
-		$categorys =CategoryModel::getInstance()->fetchSomeIndex('ASC',1,100);
-		$news= NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
-		//分类图片
-		$categoryPhoto=PhotoModel::getInstance()->getPhotosByCategory();
-		$lnewgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,2);
-		
-		$datas=array(
-			'rows'=> $goods['rows'],
-			'newrows'=> $newgoods['rows'],
-			'categorys'=> $categorys['rows'],
-			'photos'=> $photos['rows'],
-			'news'=> $news['rows'],
-			'lnewgoods'=> $lnewgoods['rows'],
-			'categoryPhoto'=> $categoryPhoto['rows'],
-			);
-
-		return $datas;
-
-	}
-
-
-		public function  getMap(){
-
-		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,4);
-		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,3);
-		//左侧
-		$categorys =CategoryModel::getInstance()->fetchSomeIndex('ASC',1,100);
-		$news= NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
-		//分类图片
-		$categoryPhoto=PhotoModel::getInstance()->getPhotosByCategory();
-		$lnewgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,2);
-		
-		$datas=array(
-			'rows'=> $goods['rows'],
-			'newrows'=> $newgoods['rows'],
-			'categorys'=> $categorys['rows'],
-			'photos'=> $photos['rows'],
-			'news'=> $news['rows'],
-			'lnewgoods'=> $lnewgoods['rows'],
-			'categoryPhoto'=> $categoryPhoto['rows'],
-			);
-
-		return $datas;
-
-	}	
-
-
-
-		public function   getContact(){
-
-		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,4);
-		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,3);
-		//左侧
-		$categorys =CategoryModel::getInstance()->fetchSomeIndex('ASC',1,100);
-		$news= NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
-		//分类图片
-		$categoryPhoto=PhotoModel::getInstance()->getPhotosByCategory();
-		$lnewgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,2);
-		
-		$datas=array(
-			'rows'=> $goods['rows'],
-			'newrows'=> $newgoods['rows'],
-			'categorys'=> $categorys['rows'],
-			'photos'=> $photos['rows'],
-			'news'=> $news['rows'],
-			'lnewgoods'=> $lnewgoods['rows'],
-			'categoryPhoto'=> $categoryPhoto['rows'],
-			);
-
-		return $datas;
-
-	}
 
 
 	/**
@@ -305,15 +151,23 @@ final class SuperModel  extends BaseModel{
 	 */
 	public function getProduct(){
 	
-		$photos=PhotoModel::getInstance()->fetchSomeIndex('ASC',1,2);
-		//分类图片
-		$categoryPhoto=PhotoModel::getInstance()->getPhotosByCategory();
-		
+		$photos=PhotoModel::getInstance()->getPhotosByGoods();
 		$detailInfo= GoodsModel::getInstance()->getDetail();
+	    $newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,3);
+	    if (isset($detailInfo['rows']['goods_pic'])) {
+	    $photo=[];
+	    $photo['photo_url']=$detailInfo['rows']['goods_pic'];
+	    $photo['photo_thum_url']=$detailInfo['rows']['goods_pic_thum'];
+	    $photo['photo_des']=$detailInfo['rows']['goods_name'];
+	     array_push( $photos['rows'],  $photo);
+	
+	    }
+
+
 		$datas=array(
 			'photos'=> $photos['rows'],
-			'categoryPhoto'=> $categoryPhoto['rows'],
 			'detailInfo'=> $detailInfo['rows'],
+			'newgoods'=> $newgoods['rows'],
 			);
 
 		return $datas;

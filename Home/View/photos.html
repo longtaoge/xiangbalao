@@ -107,9 +107,9 @@
                     </div>
                     <div class="product_img">
                         <ul>
-                         <{foreach $lnewgoods as $row}>
-                          <a href="javascript:;"><img src="<{$row.goods_pic}>"></a>
-                          <{/foreach}>
+                         <{section name=index start=0 loop=2 step=1}>
+                          <a href="javascript:;"><img src="<{$newgoods[index].goods_pic}>"></a>
+                         <{/section}>
                         </ul>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
                     </div>
                     <div class="productShopWindow linebg  clearfix  ">
                         <ul>
-                            <{foreach $newrows as $row}>
+                            <{foreach $goods as $row}>
                              <li>
                                 <div class="pbox"> <img src="<{$row.goods_pic}>">
                                     <div class="des">

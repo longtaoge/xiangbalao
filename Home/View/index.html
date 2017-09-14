@@ -111,9 +111,9 @@
                     </div>
                     <div class="product_img">
                         <ul>
-                          <{foreach $lnewgoods as $row}>
-                          <a href="javascript:;"><img src="<{$row.goods_pic}>"></a>
-                          <{/foreach}>
+                         <{section name=index start=0 loop=2 step=1}>
+                          <a href="javascript:;"><img src="<{$newgoods[index].goods_pic}>"></a>
+                         <{/section}>
                         </ul>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="productShopWindow linebg  clearfix  ">
                         <ul>
-                        <{foreach $rows as $row}>
+                        <{foreach $goods as $row}>
                             <li>
                                 <div class="pbox"> <img src="<{$row.goods_pic}>">
                                     <div class="des">
@@ -141,6 +141,29 @@
                     </div>
                 </div>
                 <!-- 产品橱窗 结束-->
+
+                <!-- 最新供应 开始-->
+                <div class="r_content_box  ">
+                 <div class="rb_title ">
+                     <h3>最新供应</h3>
+                     <a href="#">更多  &gt;</a>
+                 </div>
+                 <div class="productShopWindow  clearfix  linebg ">
+                     <ul>
+                      <{foreach $newgoods as $row}>
+                         <li>
+                             <div class="pbox"> <img src="<{$row.goods_pic}>">
+                                 <div class="des">
+                                     <p> 价格: <span> 面议</span></p>
+                                      <{$row.goods_name}>
+                                 </div>
+                             </div>
+                         </li>
+                       <{/foreach}>
+                     </ul>
+                 </div>
+               </div> 
+                <!-- 最新供应 结束-->
                 <!-- 公司介绍 开始-->
                 <div class="r_content_box  ">
                     <div class="rb_title">
@@ -153,28 +176,7 @@
                     </div>
                 </div>
                 <!-- 公司介绍 结束-->
-                <!-- 最新供应 开始-->
-                <div class="r_content_box  ">
-                    <div class="rb_title ">
-                        <h3>最新供应</h3>
-                        <a href="#">更多  &gt;</a>
-                    </div>
-                    <div class="productShopWindow  clearfix  linebg ">
-                        <ul>
-                         <{foreach $newrows as $row}>
-                            <li>
-                                <div class="pbox"> <img src="<{$row.goods_pic}>">
-                                    <div class="des">
-                                        <p> 价格: <span> 面议</span></p>
-                                         <{$row.goods_name}>
-                                    </div>
-                                </div>
-                            </li>
-                          <{/foreach}>
-                        </ul>
-                    </div>
-                </div>
-                <!-- 最新供应 结束-->
+              
                 <!-- 联系我们 开始-->
                 <div class="r_content_box">
                     <div class="rb_title">

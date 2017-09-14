@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-06 19:50:31
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-14 17:31:45
+ * @Last Modified time: 2017-09-14 20:59:50
  */
 namespace Home\Controller;
 use Frame\Libs\BaseController;
@@ -19,9 +19,6 @@ final class CategoryController extends BaseController{
 
 
 	public function detail(){
-
-
-		 
 
 		$datas=SuperModel::getInstance()->getProduct();
 		$this->mSmarty->assign($datas);

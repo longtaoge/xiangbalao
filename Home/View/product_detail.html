@@ -46,18 +46,11 @@
             <div class="l_content  ">
                 <div class="potho">
                         <div class="bigimg clearfix " id="bigimg">
-                            <img class="activi" src="./Public/Home/tmp_images/b04.jpg" alt="第4张图的描述信息" />
-                            <img src="./Public/Home/tmp_images/b02.jpg" alt="第2张图的描述信息" />
-                            <img src="./Public/Home/tmp_images/b07.jpg" alt="第7张图的描述信息" />
-                            <img src="./Public/Home/tmp_images/b01.jpg" alt="第1张图的描述信息" />
-                            <img src="./Public/Home/tmp_images/b03.jpg" alt="第3张图的描述信息" />
-                            <img src="./Public/Home/tmp_images/b08.jpg" alt="第8张图的描述信息" />
-                            <img src="./Public/Home/tmp_images/b09.jpg" alt="第9张图的描述信息" />
-                            <img src="./Public/Home/tmp_images/b06.jpg" alt="第6张图的描述信息" />
-                            <img src="./Public/Home/tmp_images/b10.jpg" alt="第10张图的描述信息" />
-                            <img src="./Public/Home/tmp_images/b05.jpg" alt="第5张图的描述信息" />
+                            <{foreach $photos as $row}>
+                            <img class="activi" src="<{$row.photo_url}>" alt="<{$row.photo_des}>" />
+                            <{/foreach}>
                             <div class="tip" id="tip">
-                                <h3>第1张图的描述信息</h3>
+                                <h3 id="tiptitle"> </h3>
                                 <a class="l" href="javascript:void(0)"> > </a>
                                 <a class="r" href="javascript:void(0)">
                                     < </a>
@@ -65,40 +58,36 @@
                         </div>
                         <div class="smallimg clearfix " id="smallimg">
                             <ul class="clearfix">
-                                <li><img src="./Public/Home/tmp_images/small01.jpg" /><span class="mask"></span><span class="  border activi"></span></li>
-                                <li><img src="./Public/Home/tmp_images/small02.jpg" /><span class="mask"></span><span class="border"></span></li>
-                                <li><img src="./Public/Home/tmp_images/small03.jpg" /><span class="mask"></span><span class="border"></span></li>
-                                <li><img src="./Public/Home/tmp_images/small04.jpg" /><span class="mask"></span><span class="border"></span></li>
-                                <li><img src="./Public/Home/tmp_images/small05.jpg" /><span class="mask"></span><span class="border"></span></li>
-                                <li><img src="./Public/Home/tmp_images/small06.jpg" /><span class="mask"></span><span class="border"></span></li>
-                                <li><img src="./Public/Home/tmp_images/small08.jpg" /><span class="mask"></span><span class="border"></span></li>
-                                <li><img src="./Public/Home/tmp_images/small10.jpg" /><span class="mask"></span><span class="border"></span></li>
-                                <li><img src="./Public/Home/tmp_images/small07.jpg" /><span class="mask"></span><span class="border"></span></li>
-                                <li><img src="./Public/Home/tmp_images/small09.jpg" /><span class="mask"></span><span class="border"></span></li>
-                            </ul>
+                             <{foreach $photos as $row}>
+                              <li><img src="<{$row.photo_thum_url}>" /><span class="mask"></span><span class="border"></span></li>
+                             <{/foreach}>
+                             </ul>
                         </div>
                 </div>
             </div>
             <div class="r_content">
-                 <div class="r_title"> 商品详情</div>
+                 <div class="r_title"> <{$detailInfo.goods_name}></div>
                  <table>
-                  <tr><td>价格:</td> <td><{$detailInfo.goods_price}> </td></tr>
-                  <tr><td>品牌:</td> <td><{$detailInfo.brand_name}>  </td></tr>
-                  <tr><td>产地:</td> <td><{$detailInfo.goods_place}>  </td></tr>
-                  <tr><td>尺寸/重量:</td> <td><{$detailInfo.goods_weight}> (cm/kg) </td></tr>
-                  <tr><td>保质期:</td> <td><{$detailInfo.goods_best_date}> </td></tr>
-                  <tr><td>颜色:</td> <td><{$detailInfo.goods_price}>  </td></tr>
+                      <tr><td>价格:</td> <td><{$detailInfo.goods_price}> </td></tr>
+                      <tr><td>品牌:</td> <td><{$detailInfo.brand_name}>  </td></tr>
+                      <tr><td>产地:</td> <td><{$detailInfo.goods_place}>  </td></tr>
+                      <tr><td>尺寸/重量:</td> <td><{$detailInfo.goods_weight}> (cm/kg) </td></tr>
+                      <tr><td>保质期:</td> <td><{$detailInfo.goods_best_date}> </td></tr>
+                      <tr><td>颜色:</td> <td><{$detailInfo.goods_price}>  </td></tr>
                 </table>
-
-                <div class="detail">了解详情 </div> 
+                <hr>
+                <div class="detail"> 了解详情 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2357261533&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2357261533:51" alt="与我联系" title="与我联系"/></a>   </div> 
             </div>
-
-
-
-         
         </div>
 
+       <div class="w">
+         <div class=" goodsdetail ">
 
+           商品详情:  <{$detailInfo.goods_detail}>
+         </div>
+       </div>
+
+          
     </div>
 
           <!-- 页脚开始 -->
