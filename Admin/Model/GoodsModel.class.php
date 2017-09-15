@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-12 10:39:42
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-13 14:05:29
+ * @Last Modified time: 2017-09-16 00:09:52
  */
 namespace Admin\Model;
 use Frame\Libs\BaseModel;
@@ -68,6 +68,8 @@ final class GoodsModel extends BaseModel{
    	   $category_id= $res['category_id'];
    	}
 
+   	$time =time();
+
    	$sql="insert into {$this->table} values(
    	null,
 	{$category_id},
@@ -81,7 +83,8 @@ final class GoodsModel extends BaseModel{
 	{$bestday},
 	'{$goods_place}',
 	'{$proDesc}',
-	{$goods_num}
+	{$goods_num},
+	{$time}
 	)";
 
  	 $res=$this->pdo->fetchOne($sql) ;

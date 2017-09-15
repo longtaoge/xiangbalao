@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,width=device-width" >
     <link rel="stylesheet" type="text/css" href="./Public/Home/css/base.css">
     <link rel="stylesheet" type="text/css" href="./Public/Home/css/index.css">
     <link rel="stylesheet" type="text/css" href="./Public/Home/css/introduce.css">
@@ -47,7 +48,7 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>企业档案</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Introduce">更多  &gt;</a>
                     </div>
                     <h4>河北石家庄华北食品城石家庄乡巴佬食品商行</h4>
                     <div class="des">
@@ -63,12 +64,12 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>公司动态</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=News">更多  &gt;</a>
                     </div>
                     <div class="product_type">
                         <ul>
                             <{foreach $news as $row}>
-                             <li><a href="javascript:;"><{$row.title}></a></li>
+                             <li><a href="?c=News&a=newsDetail&news_id=<{$row.news_id}>"><{$row.title}></a></li>
                             <{/foreach}>
                         </ul>
                     </div>
@@ -77,12 +78,12 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>相册橱窗</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Photo">更多  &gt;</a>
                     </div>
                     <div class="product_img">
                         <ul>
                           <{foreach $photos as $row}>
-                             <a href="javascript:;"><img src="<{$row.photo_url}>"></a>
+                          <a href="?c=Photo&a=photosDetail&id=<{$row.category_id}>"><img src="<{$row.photo_url}>" alt="<{$row.photo_des}>" ></a>
                           <{/foreach}>
                         </ul>
                     </div>
@@ -91,7 +92,7 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>联系我们</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Contact">更多  &gt;</a>
                     </div>
                      <div class="des">
                         <p> 联系人 : 魏先生    </p>
@@ -109,9 +110,9 @@
                    </div>
                     <div class="productCategory linebg  clearfix" >
                         <ul>
-                            <li><a href="">全部</a></li>
+                            <li><a href="?c=Category">全部</a></li>
                              <{foreach $categorys as $row}>
-                             <li><a href="javascript:;"><{$row.catagory_name}></a></li>
+                             <li><a href="?c=Category&category_id=<{$row.category_id}>"><{$row.catagory_name}></a></li>
                              <{/foreach}>
                         </ul>
                     </div>
@@ -125,7 +126,6 @@
 
                 </div>
 
-
                 <!-- 产品橱窗 开始-->
                 <div class="r_content_box">
                     <div class="rb_title">
@@ -136,9 +136,9 @@
                             <{foreach $rows as $row}>
                             <li>
                                 <a href="?c=Category&a=detail&goods_id=<{$row.goods_id}>">
-                                    <div class="pbox"> <img src="<{$row.goods_pic}>">
+                                    <div class="pbox"> <img src="<{$row.goods_pic}>" alt="<{$row.goods_name}>">
                                     <div class="des">
-                                         <p>价格: <span>面议</span></p> <{$row.goods_name}>
+                                         <p>价格: <span> ¥ <{$row.goods_price}></span></p> <{$row.goods_name}>
                                     </div>
                                 </div>
                                 </a>
@@ -153,18 +153,19 @@
                 <div class="r_content_box  ">
                  <div class="rb_title ">
                      <h3>最新供应</h3>
-                     <a href="#">更多  &gt;</a>
                  </div>
                  <div class="productShopWindow  clearfix  linebg ">
                      <ul>
                       <{foreach $newgoods as $row}>
                          <li>
-                             <div class="pbox"> <img src="<{$row.goods_pic}>">
+                         <a href="?c=Category&a=detail&goods_id=<{$row.goods_id}>">
+                             <div class="pbox"> <img src="<{$row.goods_pic}>" alt="<{$row.goods_name}>">
                                  <div class="des">
-                                     <p> 价格: <span> 面议</span></p>
+                                     <p> 价格: <span> ¥ <{$row.goods_price}></span></p>
                                       <{$row.goods_name}>
                                  </div>
                              </div>
+                          </a>
                          </li>
                        <{/foreach}>
                      </ul>
@@ -186,7 +187,7 @@
                     <li>河北省石家庄市乡巴佬食品批发中心 版权所有</li>
                     <li>地址:&nbsp;石家庄市华北食品城 电话:&nbsp;0311-8523872-8</li>
                     <li> <span class="icp"> 友情链接&nbsp;</span> <a href="http://www.xiangbalao.org"> 乡吧佬食品</a>&nbsp;&nbsp;<a href="http://www.huabeishipin.cn">华北食品城</a></li>
-                    <li> <span><a href="#">管理员入口</a> | <a href="javascript:;">产品地图</a> | <a href="javascript:;">免责声明 | </a><a href="javascript:;">技术支持:北京龙套科技</a></span> </li>
+                    <li> <span><a href="./admin.php?c=Index">管理员入口</a> | <a href="javascript:;">产品地图</a> | <a href="javascript:;">免责声明 | </a><a href="javascript:;">技术支持:北京龙套科技</a></span> </li>
                 </ul>
             </div>
             <!-- 页脚结束 -->

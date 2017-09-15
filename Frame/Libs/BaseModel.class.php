@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-12 08:15:08
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-13 20:27:36
+ * @Last Modified time: 2017-09-15 23:47:10
  */
 namespace Frame\Libs;
 use  Frame\Vendor\PDOWrapper;
@@ -73,6 +73,7 @@ abstract class BaseModel{
  		$page=($page-1)*$pageSize;
 		$sql ="select * from  $this->table  order by {$this->orderfield}  {$order} limit {$page},{$pageSize} ";
 		$res= $this->pdo->fetchAll($sql);
+
 		if ($res) {			 
 				$data['status']=1;
  		    	$data['msg']='查询成功';

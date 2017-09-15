@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-06 19:59:17
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-14 14:58:23
+ * @Last Modified time: 2017-09-15 21:07:27
  */
 namespace Home\Controller;
 use Frame\Libs\BaseController;
@@ -21,7 +21,7 @@ final class PhotoController extends BaseController{
 
 
   /**
-   * 打开相册
+   * 根据商品ID获取相关相册
    */
   public function photosDetail(){
   	$datas=SuperModel::getInstance()->getPhotobyGoods();

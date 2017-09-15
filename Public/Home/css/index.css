@@ -2,7 +2,7 @@
 * @Author: longtaoge
 * @Date:   2017-05-20 21:39:03
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-13 21:12:34
+* @Last Modified time: 2017-09-16 00:57:13
 */
 html{
 
@@ -114,6 +114,7 @@ overflow: hidden;
 .content .l_content{
 float: left;
 margin-left: 10px;
+min-height: 100%;
 }
 
 .content .l_content .l_content_box{
@@ -173,8 +174,10 @@ background: #ffffff;
 	margin-left: 20px;
     padding: 10px;
 	border-bottom: 1px dashed #ccc;
-	
-
+     overflow:hidden;
+     word-break:keep-all;
+     white-space:nowrap;
+     text-overflow:ellipsis;
 }
 
 /**左侧相册橱窗*/

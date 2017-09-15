@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-13 19:30:37
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-15 10:35:33
+ * @Last Modified time: 2017-09-15 21:59:49
  */
 namespace Home\Model;
 use Frame\Libs\BaseModel;
@@ -64,7 +64,7 @@ final class SuperModel  extends BaseModel{
 		$goods= GoodsModel::getInstance()->fetchAllList('ASC',1,100);
 		$newgoods= GoodsModel::getInstance()->fetchAllList('DESC',1,100);
 		//左侧分类
-		$this->categorys=$this->categorys!=null?$this->categorys:CategoryModel::getInstance()->fetchSomeIndex('ASC',1,3);
+		$this->categorys=$this->categorys!=null?$this->categorys:CategoryModel::getInstance()->fetchSomeIndex('ASC',1,100);
 		//新闻列表
 		$this->news=$this->news!=null?$this->news:NewsModel::getInstance()->fetchSomeIndex('ASC',1,3);
 		//相册橱窗
@@ -113,7 +113,7 @@ final class SuperModel  extends BaseModel{
 
 
 	/**
-	 * [getPhotobyGoods 照片]
+	 * [getPhotobyGoods 根据商品ID获取 照片]
 	 * @return [type] [description]
 	 */
 	public function getPhotobyGoods(){

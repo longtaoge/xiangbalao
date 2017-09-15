@@ -2,7 +2,7 @@
 * @Author: longtaoge
 * @Date:   2017-09-03 20:20:23
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-14 16:40:08
+* @Last Modified time: 2017-09-16 00:51:44
 */
 .r_content .r_content_box .news{
 
@@ -77,6 +77,7 @@
 
 .news_content .title{
       font-size: 23px;
+      margin-bottom: 20px;
 }
             
 .news_content .content{
@@ -96,13 +97,13 @@
     }
 
 .news_content .des .author{
-        width: 6em;
+        width: 16em;
         float: left;
 
 }
 
 .news_content .des .source{
-         width: 6em;
+         width: 16em;
         float: left;
 }
 

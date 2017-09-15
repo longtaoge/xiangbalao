@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,width=device-width" >
     <link rel="stylesheet" type="text/css" href="./Public/Home/css/base.css">
     <link rel="stylesheet" type="text/css" href="./Public/Home/css/index.css">
     <link rel="stylesheet" type="text/css" href="./Public/Home/css/customer.css">
@@ -46,7 +47,7 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>企业档案</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Introduce">更多  &gt;</a>
                     </div>
                     <h4>河北石家庄华北食品城石家庄乡巴佬食品商行</h4>
                     <div class="des">
@@ -61,7 +62,7 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>产品分类</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Category">更多  &gt;</a>
                     </div>
                     <div class="product_type">
                         <ul>
@@ -75,12 +76,12 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>公司动态</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=News">更多  &gt;</a>
                     </div>
                     <div class="product_type">
                         <ul>
                           <{foreach $news as $row}>
-                           <li><a href="javascript:;"><{$row.title}></a></li>
+                           <li><a href="?c=News&a=newsDetail&news_id=<{$row.news_id}>"><{$row.title}></a></li>
                           <{/foreach}>
                         </ul>
                     </div>
@@ -89,12 +90,12 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>相册橱窗</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Photo">更多  &gt;</a>
                     </div>
                     <div class="product_img">
                         <ul>
                          <{foreach $photos as $row}>
-                          <a href="javascript:;"><img src="<{$row.photo_url}>"></a>
+                          <a href="?c=Photo&a=photosDetail&id=<{$row.category_id}>"><img src="<{$row.photo_url}>" alt="<{$row.photo_des}>" ></a>
                           <{/foreach}>
                         </ul>
                     </div>
@@ -103,13 +104,13 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>最新供应</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Photo">更多  &gt;</a>
                     </div>
                     <div class="product_img">
                         <ul>    
                           <{section name=index start=0 loop=2 step=1}>
                            <{if $newgoods!=null}>
-                          <a href="javascript:;"><img src="<{$newgoods[index].goods_pic}>"></a>
+                          <a href="?c=Category&a=detail&goods_id=<{$newgoods[index].goods_id}>"><img src="<{$newgoods[index].goods_pic}>" alt="<{$newgoods[index].goods_name}>"></a>
                           <{/if}>
                           <{/section}>
                         </ul>
@@ -118,7 +119,7 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>联系我们</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Contact">更多  &gt;</a>
                     </div>
                     <div class="des">
                         <p> 联系人 : 魏先生 </p>
@@ -141,8 +142,6 @@
                                     <embed height="400" type="application/x-shockwave-flash" align="middle" width="480" src="http://player.youku.com/player.php/sid/XMzU2NDk5OTI4/v.swf" allowscriptaccess="sameDomain" quality="high" />
                                     </embed />
                                 </div>
-
-                            
                         </div>
                     </div>
                     <!-- 地图 结束-->
@@ -155,19 +154,14 @@
                     <li>河北省石家庄市乡巴佬食品批发中心 版权所有</li>
                     <li>地址:&nbsp;石家庄市华北食品城 电话:&nbsp;0311-8523872-8</li>
                     <li> <span class="icp"> 友情链接&nbsp;</span> <a href="http://www.xiangbalao.org"> 乡吧佬食品</a>&nbsp;&nbsp;<a href="http://www.huabeishipin.cn">华北食品城</a></li>
-                    <li> <span><a href="#">管理员入口</a> | <a href="javascript:;">产品地图</a> | <a href="javascript:;">免责声明 | </a><a href="javascript:;">技术支持:北京龙套科技</a></span> </li>
+                    <li> <span><a href="./admin.php?c=Index">管理员入口</a> | <a href="javascript:;">产品地图</a> | <a href="javascript:;">免责声明 | </a><a href="javascript:;">技术支持:北京龙套科技</a></span> </li>
             </ul>
         </div>
         <!-- 页脚结束 -->
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=4qXTGvclMqTZXkLsU3twnMA7"></script>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
-
-            //全景图展示
-            //1:将街景地图渲染到 panorama 位置
             var panorama = new BMap.Panorama('panorama');
-            //设置位置，街景地图的位置. //获取位置，将位置设置到这个位置.
-            //位置通过pc 端去获取，不稳定，模拟一个经纬度.
             panorama.setPosition(new BMap.Point(114.440468, 38.070404)); //根据经纬度坐标展示全景图
             panorama.setPov({ heading: -40, pitch: 6 });
             /* panorama.addEventListener('position_changed', function(e){ //全景图位置改变后，普通地图中心点也随之改变

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,width=device-width" >
     <link rel="stylesheet" type="text/css" href="./Public/Home/css/base.css">
     <link rel="stylesheet" type="text/css" href="./Public/Home/css/index.css">
-    <meta name="viewport" content="initial-scale=1,width=device-width" >
+    <link rel="icon" href="./Public/Home/img/favicon.ico">
+    <meta name="description" content="华北食品城 乡吧佬食品批发 位于河北省石家庄市平西路与西二环交叉口，主营 休闲食品/肉制品/乡吧佬系列/火腿腿系列/麻辣系列/泡爪系列…… 等。公司秉承“顾客至上，锐意进取”的经营理念，坚持“客户第一”的原则为广大客户提供优质的服务。欢迎惠顾 石家庄市西二环与和平路交叉口，南靠307国道，距石太高速公路2.5公里，距107国道复线2公里，市公交76路、快4路、旅游2路车直达食品城，公路运输四通八达，交通便利，地理位置极为优越。 华北食品城位于石家庄二环路市场带，南邻河北省最大的农产品批发市场 石家庄桥西蔬菜中心批发市场，北邻华闽日化百货，西邻东鑫商贸中心,华北食品城区位优势明显，是理想的经营场所">
+    <meta name="keywords" content="华北食品城,乡吧佬食品,双汇王中王,火腿肠,食品批发,金锣火腿肠,超市配货">
 </head>
 
 <body>
@@ -46,25 +48,22 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>企业档案</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Introduce">更多  &gt;</a>
                     </div>
                     <h4>河北石家庄华北食品城石家庄乡巴佬食品商行</h4>
                     <div class="des">
                          <div> <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2357261533&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2357261533:51" alt="与我联系" title="与我联系"/></a>
-
                          <br>
-                        </div>  
-          
+                        </div> 
                         <p> 工商注册信息：已认证</p>
                         <p> 所在地区：河北省 石家庄市</p>
-                        
                     </div>
                 </div>
                 <!-- 产品分类 -->
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>产品分类</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Category">更多  &gt;</a>
                     </div>
                     <div class="product_type">
                         <ul>
@@ -78,12 +77,12 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>公司动态</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=News">更多  &gt;</a>
                     </div>
                     <div class="product_type">
                         <ul>
                         <{foreach $news as $row}>
-                         <li><a href="javascript:;"><{$row.title}></a></li>
+                         <li><a href="?c=News&a=newsDetail&news_id=<{$row.news_id}>"><{$row.title}></a></li>
                         <{/foreach}>
                         </ul>
                     </div>
@@ -92,12 +91,12 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>相册橱窗</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Photo">更多  &gt;</a>
                     </div>
                     <div class="product_img">
                         <ul>  
-                          <{foreach $photos as $row}>
-                          <a href="javascript:;"><img src="<{$row.photo_url}>"></a>
+                          <{foreach $photos as $row}>  
+                          <a href=""><img src="<{$row.photo_url}>" alt="<{$row.photo_des}>"></a>
                           <{/foreach}>
                             
                         </ul>
@@ -107,12 +106,10 @@
                 <div class="l_content_box">
                     <div class="lb_title">
                         <h3>最新供应</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Category">更多  &gt;</a>
                     </div>
                     <div class="product_img">
                         <ul>
-
-                       
                          <{section name=index start=0 loop=2 step=1}>
                           <{if $newgoods!=null}>
                           <a href="javascript:;"><img src="<{$newgoods[index].goods_pic}>"></a>
@@ -128,7 +125,7 @@
                 <div class="r_content_box">
                     <div class="rb_title">
                         <h3>产品橱窗</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Category">更多  &gt;</a>
                     </div>
                     <div class="productShopWindow linebg  clearfix  ">
                         <ul>
@@ -136,7 +133,7 @@
                             <li>
                                 <div class="pbox"> <img src="<{$row.goods_pic}>">
                                     <div class="des">
-                                         <p>价格: <span>面议</span></p> <{$row.goods_name}>
+                                         <p>价格: <span> ¥ <{$row.goods_price}></span></p> <{$row.goods_name}>
                                     </div>
                                 </div>
                             </li>
@@ -150,15 +147,15 @@
                 <div class="r_content_box  ">
                  <div class="rb_title ">
                      <h3>最新供应</h3>
-                     <a href="#">更多  &gt;</a>
+                     <a href="?c=Category">更多  &gt;</a>
                  </div>
                  <div class="productShopWindow  clearfix  linebg ">
                      <ul>
                       <{foreach $newgoods as $row}>
                          <li>
-                             <div class="pbox"> <img src="<{$row.goods_pic}>">
+                             <div class="pbox"> <img src="<{$row.goods_pic}>" alt="<{$row.goods_name}>">
                                  <div class="des">
-                                     <p> 价格: <span> 面议</span></p>
+                                     <p> 价格: <span> ¥ <{$row.goods_price}></span></p>
                                       <{$row.goods_name}>
                                  </div>
                              </div>
@@ -172,10 +169,10 @@
                 <div class="r_content_box  ">
                     <div class="rb_title">
                         <h3>公司介绍</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Introduce">更多  &gt;</a>
                     </div>
                     <div class="enter_des linebg">
-                        <img src="./Public/Home/img/shipincheng.jpg">
+                        <img src="./Public/Home/img/shipincheng.jpg" alt="华北食品城">
                         <p> 华北食品城位于河北省石家庄市平西路与西二环交叉口，主营 休闲食品/肉制品/乡吧佬系列/火腿腿系列/麻辣系列/泡爪系列…… 等。公司秉承“顾客至上，锐意进取”的经营理念，坚持“客户第一”的原则为广大客户提供优质的服务。欢迎惠顾 石家庄市西二环与和平路交叉口，南靠307国道，距石太高速公路2.5公里，距107国道复线2公里，市公交76路、快4路、旅游2路车直达食品城，公路运输四通八达，交通便利，地理位置极为优越。 华北食品城位于石家庄二环路市场带，南邻河北省最大的农产品批发市场---石家庄桥西蔬菜中心批发市场，北邻华闽日化百货，西邻东鑫商贸中心,华北食品城区位优势明显，是理想的经营场所。 　　 一期工程占地80余亩，经营门市800余间，批发商800余户，汇集了全国上千个知名厂家直销处及厂家总代理3万余个品种，经营品类包括各类小食品、副食品、糖果、粮油、烟、酒、茶各种饮品等。华北食品城规划建设布局合理，门市之间通道为封闭式大棚，可防雨、防晒，方便客商进行交易，是广大客户理想的货源基地。现日成交额1000万元，日客流量1万余人。食品城设有市场管理处，治安派出所，工商管理所，巡回法庭等管理机构，确保市场交易公平、公正。保安24小时昼夜服务，确保客户人身及货物的安全。同时食品城还建有铁路专用线，停车场、标准库房，住宿、餐饮，托运、银行、咨询处等完善配套的设施，为广大客户提供行情信息、代购、代销、运输、金融及吃、住、行等全方位服务。 主营商品：小食品、副食品、糖果、粮油、烟、酒、茶各种饮品等 </p>
                     </div>
                 </div>
@@ -185,7 +182,7 @@
                 <div class="r_content_box">
                     <div class="rb_title">
                         <h3>联系我们</h3>
-                        <a href="#">更多  &gt;</a>
+                        <a href="?c=Contact">更多  &gt;</a>
                     </div>
                     <div class="contact linebg">
                         <fieldset>
@@ -207,10 +204,7 @@
                 </div>
                 <!-- 联系我们 结束-->
             </div>
-         
         </div>
-
-
     </div>
 
      <!-- 页脚开始 -->
