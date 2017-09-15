@@ -46,14 +46,14 @@
         sendForm: false,
         onKeyup: true,
         eachValidField: function() {
-            // 
+            //TODO 
         },
         eachInvalidField: function() {
-            // 
+            //TODO
         },
         valid: function() {
             $(this).ajaxSubmit({
-                // 利用反代理请求接口服务器
+                // TODO 利用反代理请求接口服务器
                 url: Admin.login,
                 type: 'post',
                 success: function(info) {
@@ -69,7 +69,6 @@
         },
         description: {
             // 为每一个表单项处理错误信息
-            // 表单项1,
             name: {
                 required: '用户名不能为空'
             },

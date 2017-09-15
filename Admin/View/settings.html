@@ -230,8 +230,8 @@
                         </div>
                         <div class="form-group">
                             <label for="" class="col-xs-3 control-label">个人介绍</label>
-                            <div class="col-xs-5 ckeditor">
-                                <textarea name="" id="ckeditor" rows="15" class="form-control input-sm"></textarea>
+                            <div class="col-xs-5 ">
+                               <textarea name="proDesc" id="editor"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -248,10 +248,13 @@
     <script src="./Public/Admin/assets/jquery/jquery.min.js"></script>
     <script src="./Public/Admin/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="./Public/Admin/assets/nprogress/nprogress.js"></script>
-    <script src="./Public/Admin/assets/ckeditor/ckeditor.js"></script>
+    <script src="./Public/Admin/assets/ueditor/ueditor.config.js"></script>
+    <script src="./Public/Admin/assets/ueditor/ueditor.all.min.js"></script>
+    <script src="./Public/Admin/assets/ueditor/lang/zh-cn/zh-cn.js"></script>
     <script src="./Public/Admin/js/common.js"></script>
     <script>
-    CKEDITOR.replace('ckeditor');
+   
+    var ue = UE.getEditor('editor');
     </script>
 </body>
 

@@ -108,7 +108,9 @@
                     <div class="product_img">
                         <ul>
                           <{section name=index start=0 loop=2 step=1}>
+                           <{if $newgoods!=null}>
                           <a href="javascript:;"><img src="<{$newgoods[index].goods_pic}>"></a>
+                           <{/if}>
                          <{/section}>
                         </ul>
                     </div>

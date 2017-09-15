@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-13 19:30:37
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-15 00:41:08
+ * @Last Modified time: 2017-09-15 10:35:33
  */
 namespace Home\Model;
 use Frame\Libs\BaseModel;
@@ -47,7 +47,6 @@ final class SuperModel  extends BaseModel{
 			'photos'=> $this->photos['rows'],
 			'news'=> $this->news['rows'],
 			);
-
 		return $datas;
 
 	}

@@ -68,7 +68,9 @@
                     <div class="product_type">
                         <ul>
                         <{section name=index start=0 loop=3 step=1}>
+                         <{if $categorys!=null}>
                         <li><a href="javascript:;"><{$categorys[index].catagory_name}></a></li>
+                         <{/if}>
                         <{/section}>
                         </ul>
                     </div>
@@ -111,7 +113,9 @@
                     <div class="product_img">
                         <ul>
                          <{section name=index start=0 loop=2 step=1}>
+                           <{if $newgoods!=null}>
                           <a href="javascript:;"><img src="<{$newgoods[index].goods_pic}>"></a>
+                           <{/if}>
                          <{/section}>
                         </ul>
                     </div>

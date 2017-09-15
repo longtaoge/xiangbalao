@@ -209,14 +209,10 @@
         success: function(info) {
             info = $.parseJSON(info);
 
-
             if (info.brand) {
                 $('#category').html('共' + info.category + "类" + info.brand + '个品牌');
-
                 console.log(info);
-
             }
-
 
             if (info.goods) {
                 $('#goods').html('共' + info.goods + '个商品');
@@ -228,20 +224,10 @@
 
             if (info.lastIp) {
                 $('#lastIp').html(info.lastIp);
-
             }
             if (info.goods_name) {
-
                 setChart(info.goods_name, info.goods_num);
             }
-
-
-
-
-
-
-
-
 
         }
     })
