@@ -2,7 +2,7 @@
 * @Author: longtaoge
 * @Date:   2017-09-03 21:52:16
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-04 13:58:49
+* @Last Modified time: 2017-09-16 08:50:14
 */
 .content .r_content  .map{
 
@@ -21,10 +21,10 @@
 
 }
 .content  .r_content .map .street{
- background: #ffffff;
-   overflow: hidden;
-            width: 100%;
-            height: 600px;
+    background: #ffffff;
+    overflow: hidden;
+    width: 100%;
+    height: 600px;
 	
 }
 
@@ -32,10 +32,10 @@
 
 .content .r_content  .map .for2d{
 
-  background: #ffffff;
+   background: #ffffff;
    overflow: hidden;
-            width: 100%;
-            height: 600px;
+   width: 100%;
+   height: 600px;
 
 }
 

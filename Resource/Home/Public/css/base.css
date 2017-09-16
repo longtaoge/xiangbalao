@@ -2,7 +2,7 @@
 * @Author: longtaoge
 * @Date:   2017-05-20 21:32:11
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-12 20:25:13
+* @Last Modified time: 2017-09-16 08:39:21
 */
 
 
@@ -63,6 +63,27 @@ overflow: hidden;
 	margin: 0 auto;
 
 }
+
+
+
+@media all and (width:980px){
+	 .footer{
+	 	width: 100%;
+	 }
+}
+
+@media all and (width:360px){
+	 .footer{
+	 	width: 950px;
+	 }
+}
+
+@media all and (max-width:480px){
+      .footer{
+	 	width: 950px;
+	 }		
+}
+
 
 /**
  * 线条背景

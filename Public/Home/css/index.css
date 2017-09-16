@@ -2,7 +2,7 @@
 * @Author: longtaoge
 * @Date:   2017-05-20 21:39:03
 * @Last Modified by:   longtaoge
-* @Last Modified time: 2017-09-16 00:57:13
+* @Last Modified time: 2017-09-16 08:38:10
 */
 html{
 
@@ -379,23 +379,6 @@ line-height: 25px;
 
 
 
-@media all and (width:980px){
-	 .footer{
-	 	width: 100%;
-	 }
-}
-
-@media all and (width:360px){
-	 .footer{
-	 	width: 970px;
-	 }
-}
-
-@media only screen  add(max-width:480px){
-      .footer{
-	 	width: 970px;
-	 }		
-}
 
 
 .footer   .icp{
