@@ -3,7 +3,7 @@
  * @Author: longtaoge
  * @Date:   2017-09-10 10:03:48
  * @Last Modified by:   longtaoge
- * @Last Modified time: 2017-09-10 21:15:27
+ * @Last Modified time: 2017-09-17 01:59:57
  */
 namespace Frame\Libs;
 final class FileTool {
@@ -145,6 +145,26 @@ function saveMultfile($files,$dir=[],$maxSize=0,$type_array=[]){
 
 
 
+private function mime_content_type($file){
+	switch (strrchr($file,'.')) {
+		    case '.gif':
+			return image_type_to_mime_type(IMAGETYPE_GIF);
+			break;
+			case '.png':
+			 return image_type_to_mime_type(IMAGETYPE_PNG);
+			break;
+			case '.jpeg':
+			 return image_type_to_mime_type(IMAGETYPE_JPEG);
+			break;
+			case '.gif':
+			 return image_type_to_mime_type(IMAGETYPE_BMP);
+			break;
+		
+		default:
+			return 'text/plain';
+			break;
+	}
 
+}
 
 }
