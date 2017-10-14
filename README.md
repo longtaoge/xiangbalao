@@ -2,6 +2,10 @@
 乡吧佬企业网站管理系统
 
 
+![首页](https://github.com/longtaoge/xiangbalao/blob/master/Resource/other/1.png)
+![首页2](https://github.com/longtaoge/xiangbalao/blob/master/Resource/other/2.bmp)
+![首页3](https://github.com/longtaoge/xiangbalao/blob/master/Resource/other/3.bmp)
+
 Copyright 2013 longtaoger
 
 Licensed under the Apache License, Version 2.0 (the "License");
