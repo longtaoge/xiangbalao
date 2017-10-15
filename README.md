@@ -4,7 +4,7 @@
 
 ![首页](https://github.com/longtaoge/xiangbalao/blob/master/Resource/other/1.png)
 ![首页2](https://github.com/longtaoge/xiangbalao/blob/master/Resource/other/2.bmp)
-![首页3](https://github.com/longtaoge/xiangbalao/blob/master/Resource/other/3.bmp)
+![首页3](https://github.com/longtaoge/xiangbalao/blob/master/Resource/other/31.bmp)
 
 Copyright 2013 longtaoger
 
