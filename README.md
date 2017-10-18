@@ -1,7 +1,7 @@
 # xiangbalao
 乡吧佬企业网站管理系统
 
-
+![xiangbalao.org][http://www.xiangbalao.org/]
 ![首页](https://github.com/longtaoge/xiangbalao/blob/master/Resource/other/1.png)
 ![首页2](https://github.com/longtaoge/xiangbalao/blob/master/Resource/other/2.bmp)
 ![首页3](https://github.com/longtaoge/xiangbalao/blob/master/Resource/other/31.bmp)
